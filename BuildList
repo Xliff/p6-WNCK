@@ -8,6 +8,7 @@ GTK::Roles::Signals::Generic
 Method::Also
 WNCK::Raw::Types
 WNCK::Raw::Application
+WNCK::Raw::ClassGroup
 WNCK::Raw::Screen
 WNCK::Raw::Window
 WNCK::Raw::Workspace
@@ -15,4 +16,5 @@ WNCK::Roles::Signals::Screen
 WNCK::Window
 WNCK::Workspace
 WNCK::Application
+WNCK::ClassGroup
 WNCK::Screen

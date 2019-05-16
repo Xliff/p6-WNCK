@@ -157,3 +157,10 @@ sub wnck_screen_get_width (WnckScreen $screen)
   is native(wnck)
   is export
 { * }
+
+sub wnck_screen_get_for_root (gulong $root)
+  returns WnckScreen
+  is native(wnck)
+  is export
+{ * }
+  

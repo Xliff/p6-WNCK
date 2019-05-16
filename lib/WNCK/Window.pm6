@@ -10,9 +10,11 @@ use WNCK::Raw::Window;
 use GTK::Compat::Pixbuf;
 
 use GTK::Compat::Roles::Object;
+use GTK::Roles::Signals::Generic;
 
 class WNCK::Window {
-  also GTK::Compat::Roles::Object;
+  also does GTK::Compat::Roles::Object;
+  also does GTK::Roles::Signals::Generic;
 
   has WnckWindow $!ww;
 
@@ -22,6 +24,60 @@ class WNCK::Window {
 
   method WNCK::Raw::WnckWindow
   { $!ww }
+
+  # Is originally:
+  # WnckWindow, WnckWindowActions(uint), WnckWindowActions(uint), gpointer --> void
+  method actions-changed {
+    self.connect-uintuint($!ww, 'actions-changed');
+  }
+
+  # Is originally:
+  # WnckWindow, gpointer --> void
+  method class-changed {
+    self.connect($!ww, 'class-changed');
+  }
+
+  # Is originally:
+  # WnckWindow, gpointer --> void
+  method geometry-changed {
+    self.connect($!ww, 'geometry-changed');
+  }
+
+  # Is originally:
+  # WnckWindow, gpointer --> void
+  method icon-changed {
+    self.connect($!ww, 'icon-changed');
+  }
+
+  # Is originally:
+  # WnckWindow, gpointer --> void
+  method name-changed {
+    self.connect($!ww, 'name-changed');
+  }
+
+  # Is originally:
+  # WnckWindow, gpointer --> void
+  method role-changed {
+    self.connect($!ww, 'role-changed');
+  }
+
+  # Is originally:
+  # WnckWindow, WnckWindowState(uint), WnckWindowState(uint), gpointer --> void
+  method state-changed {
+    self.connect-uintuint($!ww, 'state-changed');
+  }
+
+  # Is originally:
+  # WnckWindow, gpointer --> void
+  method type-changed {
+    self.connect($!ww, 'type-changed');
+  }
+
+  # Is originally:
+  # WnckWindow, gpointer --> void
+  method workspace-changed {
+    self.connect($!ww, 'workspace-changed');
+  }
 
   method get (Int() $xid) {
     my gulong $x = resolve-ulong($xid);

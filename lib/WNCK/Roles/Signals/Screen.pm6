@@ -5,7 +5,11 @@ use NativeCall;
 use GTK::Compat::Types;
 use WNCK::Raw::Types;
 
+use GTK::Roles::Signals::Generic;
+
 role WNCK::Roles::Signals::Screen {
+  also does GTK::Roles::Signals::Generic;
+  
   has %!signals-ws;
 
   # WnckScreen, WnckWindow, gpointer

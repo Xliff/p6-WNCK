@@ -11,7 +11,7 @@ sub wnck_screen_calc_workspace_layout (
   WnckScreen $screen,
   gint $num_workspaces,
   gint $space_index,
-  WnckWorkspaceLayout $layout
+  guint $layout # WnckWorkspaceLayout $layout
 )
   is native(wnck)
   is export
@@ -27,7 +27,9 @@ sub wnck_screen_force_update (WnckScreen $screen)
   is export
 { * }
 
-sub wnck_screen_free_workspace_layout (WnckWorkspaceLayout $layout)
+sub wnck_screen_free_workspace_layout (
+  guint $layout # WnckWorkspaceLayout $layout
+)
   is native(wnck)
   is export
 { * }
@@ -92,7 +94,7 @@ sub wnck_screen_get_windows (WnckScreen $screen)
   is export
 { * }
 
-sub wnck_get_windows_stacked (WnckScreen $screen)
+sub wnck_screen_get_windows_stacked (WnckScreen $screen)
   returns GList
   is native(wnck)
   is export
@@ -146,7 +148,7 @@ sub wnck_screen_get_workspace_count (WnckScreen $screen)
   is export
 { * }
 
-sub wnck_screen_net_wm_supports (WnckScreen $screen, Str $atom);
+sub wnck_screen_net_wm_supports (WnckScreen $screen, Str $atom)
   returns gboolean
   is native(wnck)
   is export
@@ -163,4 +165,15 @@ sub wnck_screen_get_for_root (gulong $root)
   is native(wnck)
   is export
 { * }
-  
+
+sub wnck_screen_get_workspace (WnckScreen $screen, gint $workspace)
+  returns WnckWorkspace
+  is native(wnck)
+  is export
+{ * }
+
+sub wnck_screen_get_workspaces (WnckScreen $screen)
+  returns GList
+  is native(wnck)
+  is export
+{ * }

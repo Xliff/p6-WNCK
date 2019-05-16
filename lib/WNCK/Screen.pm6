@@ -1,5 +1,7 @@
 use v6.c;
 
+use Method::Also;
+
 use GTK::Compat::Types;
 use WNCK::Raw::Types;
 
@@ -263,7 +265,7 @@ class WNCK::Screen {
     >
   {
     my $l = wnck_screen_get_windows($!ws)
-      but GTK::Compat::Roles::ListData[WnckWnidow];
+      but GTK::Compat::Roles::ListData[WnckWindow];
     $raw ??
       $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
   }
@@ -277,14 +279,14 @@ class WNCK::Screen {
   {
     wnck_screen_get_windows_stacked($!ws);
     my $l = wnck_screen_get_windows($!ws)
-      but GTK::Compat::Roles::ListData[WnckWnidow];
+      but GTK::Compat::Roles::ListData[WnckWindow];
     $raw ??
       $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
   }
 
   method get_workspace (Int() $index) is also<get-workspace> {
     my gint $i = resolve-int($index);
-    WNCK::Workspace.new( wnck_screen_get_workspace($i) );
+    WNCK::Workspace.new( wnck_screen_get_workspace($!ws, $i) );
   }
 
   method get_workspaces (:$raw = False)

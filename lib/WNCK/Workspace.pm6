@@ -1,7 +1,11 @@
 use v6.c;
 
+use Method::Also;
+
 use GTK::Compat::Types;
 use WNCK::Raw::Types;
+
+use GTK::Raw::Utils;
 
 use WNCK::Raw::Workspace;
 

@@ -112,7 +112,9 @@ class WNCK::Window {
       actions
     >
   {
-    WnckWindowActions( wnck_window_get_actions($!ww) );
+    #WnckWindowActions(
+      wnck_window_get_actions($!ww)
+    #);
   }
 
   method get_application
@@ -154,7 +156,7 @@ class WNCK::Window {
       client-window-geometry
     >
   {
-    ($xp, $yp, $widthp, $heightp) = 0 xx 4;
+    my ($xp, $yp, $widthp, $heightp) = 0 xx 4;
     samewith($xp, $yp, $widthp, $heightp);
   }
   multi method get_client_window_geometry (
@@ -163,20 +165,20 @@ class WNCK::Window {
     Int() $widthp  is rw,
     Int() $heightp is rw
   ) {
-    my gint ($xx, $yy, $w, $h) = resolve-int($xp, $yp, $widthp, $heightp)
+    my gint ($xx, $yy, $w, $h) = resolve-int($xp, $yp, $widthp, $heightp);
     wnck_window_get_client_window_geometry($!ww, $xx, $yy, $w, $h);
     ($xp, $yp, $widthp, $heightp) = ($xx, $yy, $w, $h);
   }
 
   proto method get_geometry (|)
     is also<
-      get_geometry
+      get-geometry
       geometry
     >
   { * }
 
   multi method get_geometry {
-    ($xp, $yp, $widthp, $heightp) = 0 xx 4;
+    my ($xp, $yp, $widthp, $heightp) = 0 xx 4;
     samewith($xp, $yp, $widthp, $heightp);
   }
   multi method get_geometry (
@@ -185,7 +187,7 @@ class WNCK::Window {
     Int() $widthp  is rw,
     Int() $heightp is rw
   ) {
-    my gint ($xx, $yy, $w, $h) = resolve-int($xp, $yp, $widthp, $heightp)
+    my gint ($xx, $yy, $w, $h) = resolve-int($xp, $yp, $widthp, $heightp);
     wnck_window_get_geometry($!ww, $xx, $yy, $w, $h);
     ($xp, $yp, $widthp, $heightp) = ($xx, $yy, $w, $h);
   }
@@ -268,7 +270,9 @@ class WNCK::Window {
       window-type
     >
   {
-    WnckWindowType( wnck_window_get_window_type($!ww) );
+    #WnckWindowType(
+      wnck_window_get_window_type($!ww)
+    #);
   }
 
   method get_workspace
@@ -449,7 +453,7 @@ class WNCK::Window {
   }
 
   method get_class_instance_name is also<get-class-instance-name> {
-    wnck_get_class_instance_name($!ww);
+    wnck_window_get_class_instance_name($!ww);
   }
 
   method get_group_leader
@@ -511,10 +515,6 @@ class WNCK::Window {
 
   method is_most_recently_activated is also<is-most-recently-activated> {
     so wnck_window_is_most_recently_activated($!ww);
-  }
-
-  method is_pinned is also<is-pinned> {
-    so wnck_window_is_pinned($!ww);
   }
 
   method is_shaded is also<is-shaded> {

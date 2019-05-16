@@ -1,5 +1,7 @@
 use v6.c;
 
+use Method::Also;
+
 use GTK::Compat::Types;
 use WNCK::Raw::Types;
 
@@ -21,8 +23,8 @@ class WNCK::ClassGroup {
     self!setObject( cast(GObject, $!wcg = $group) );
   }
 
-  method get {
-    self.bless( group => wnck_class_group_get($!wcg) );
+  method get (Str() $id) {
+    self.bless( group => wnck_class_group_get($id) );
   }
 
   method icon-changed {
@@ -81,7 +83,7 @@ class WNCK::ClassGroup {
       windows
     >
   {
-    my $l = GTK::Compat::GList.new( wnck_class_group_get_windows($!wcg) );
+    my $l = GTK::Compat::GList.new( wnck_class_group_get_windows($!wcg) )
       but GTK::Compat::Roles::ListData[WnckWindow];
     $raw ??
       $l.Array !! $l.Array.map({ WNCK::Window.new($_) });

@@ -4,17 +4,18 @@ use NativeCall;
 use Method::Also;
 
 use GTK::Compat::Types;
+use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
 use GTK::Menu;
 
 use WNCK::Window;
 
-our ActionMenuAncestry is export of Mu
-  where WnckActionMenu | MenuAncestry
+our subset ActionMenuAncestry is export of Mu
+  where WnckActionMenu | MenuAncestry;
 
 class WNCK::ActionMenu is GTK::Menu {
-  has WnckActionMenu $!wam
+  has WnckActionMenu $!wam;
 
   method bless(*%attrinit) {
     my $o = self.CREATE.BUILDALL(Empty, %attrinit);
@@ -27,7 +28,7 @@ class WNCK::ActionMenu is GTK::Menu {
       when ActionMenuAncestry {
         my $to-parent;
         $!wam = do {
-          when WnckActionmenu {
+          when WnckActionMenu {
             $to-parent = cast(GtkMenu, $_);
             $_;
           }
@@ -82,7 +83,7 @@ sub wnck_action_menu_get_type ()
 { * }
 
 sub wnck_action_menu_new (WnckWindow $window)
-  returns GtkWidget
+  returns WnckActionMenu
   is native(wnck)
   is export
 { * }

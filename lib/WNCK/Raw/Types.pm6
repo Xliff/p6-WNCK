@@ -5,15 +5,32 @@ use GTK::Roles::Pointers;
 
 unit package WNCK::Raw::Types;
 
-class WnckActionMenu        is repr("CPointer") does GTK::Roles::Pointers is export { }
-class WnckApplication       is repr("CPointer") does GTK::Roles::Pointers is export { }
-class WnckClassGroup        is repr("CPointer") does GTK::Roles::Pointers is export { }
-class WnckPager             is repr("CPointer") does GTK::Roles::Pointers is export { }
-class WnckScreen            is repr("CPointer") does GTK::Roles::Pointers is export { }
-class WnckSelector          is repr("CPointer") does GTK::Roles::Pointers is export { }
-class WnckTasklist          is repr("CPointer") does GTK::Roles::Pointers is export { }
-class WnckWindow            is repr("CPointer") does GTK::Roles::Pointers is export { }
-class WnckWorkspace         is repr("CPointer") does GTK::Roles::Pointers is export { }
+constant wnck is export = 'wnck-3',v0;
+
+class WnckActionMenu        is repr('CPointer') does GTK::Roles::Pointers is export { }
+class WnckApplication       is repr('CPointer') does GTK::Roles::Pointers is export { }
+class WnckClassGroup        is repr('CPointer') does GTK::Roles::Pointers is export { }
+class WnckPager             is repr('CPointer') does GTK::Roles::Pointers is export { }
+class WnckScreen            is repr('CPointer') does GTK::Roles::Pointers is export { }
+class WnckSelector          is repr('CPointer') does GTK::Roles::Pointers is export { }
+class WnckTasklist          is repr('CPointer') does GTK::Roles::Pointers is export { }
+class WnckWindow            is repr('CPointer') does GTK::Roles::Pointers is export { }
+class WnckWorkspace         is repr('CPointer') does GTK::Roles::Pointers is export { }
+
+class WnckResourceUsage is repr('CStruct') does GTK::Roles::Pointers is export {
+  has gulong  $.total_bytes_estimate is rw;
+  has gulong  $.pixmap_bytes         is rw;
+  has guint   $.n_pixmaps            is rw;
+  has guint   $.n_windows            is rw;
+  has guint   $.n_gcs                is rw;
+  has guint   $.n_pictures           is rw;
+  has guint   $.n_glyphsets          is rw;
+  has guint   $.n_fonts              is rw;
+  has guint   $.n_colormap_entries   is rw;
+  has guint   $.n_passive_grabs      is rw;
+  has guint   $.n_cursors            is rw;
+  has guint   $.n_other              is rw;
+};
 
 our enum WnckWindowState is export (
   WNCK_WINDOW_STATE_MINIMIZED               =>  1,

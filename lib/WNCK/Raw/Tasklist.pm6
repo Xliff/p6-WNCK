@@ -8,7 +8,7 @@ use WNCK::Raw::Types;
 unit package WNCK::Raw::Tasklist;
 
 sub wnck_tasklist_get_size_hint_list (WnckTasklist $tasklist, gint $n_elements)
-  returns int
+  returns gint
   is native(wnck)
   is export
 { * }

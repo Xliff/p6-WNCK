@@ -1,5 +1,7 @@
 use v6.c;
 
+use NativeCall;
+
 use GTK::Compat::Types;
 use WNCK::Raw::Types;
 
@@ -18,7 +20,7 @@ sub wnck_workspace_get_layout_row (WnckWorkspace $space)
 { * }
 
 sub wnck_workspace_get_name (WnckWorkspace $space)
-  returns char
+  returns Str
   is native(wnck)
   is export
 { * }

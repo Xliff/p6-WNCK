@@ -1,11 +1,19 @@
 use v6.c;
 
+use Method::Also;
+
 use GTK::Compat::Types;
+use GTK::Raw::Types;
 use WNCK::Raw::Types;
+
+use GTK::Raw::Utils;
 
 use WNCK::Raw::Pager;
 
 use GTK::Widget;
+
+our subset PagerAncestry is export of Mu
+  where WnckPager | WidgetAncestry;
 
 class WNCK::Pager is GTK::Widget {
   has WnckPager $!wp;
@@ -79,7 +87,7 @@ class WNCK::Pager is GTK::Widget {
   }
 
   method set_shadow_type (Int() $shadow_type) is also<set-shadow-type> {
-    my guint $s = resolve-uint($shadow_type);
+    my guint $st = resolve-uint($shadow_type);
     wnck_pager_set_shadow_type($!wp, $st);
   }
 

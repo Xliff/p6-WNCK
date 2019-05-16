@@ -4,22 +4,23 @@ use Method::Also;
 use NativeCall;
 
 use GTK::Compat::Types;
+use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
 use GTK::MenuBar;
 
-our SelectorAncestry is export of Mu
+our subset SelectorAncestry is export of Mu
   where WnckSelector | MenuBarAncestry;
 
 class WNCK::Selector is GTK::MenuBar {
-  has WnckSelector $!s;
+  has WnckSelector $!ws;
 
   submethod BUILD (:$selector) {
     given $selector {
       when SelectorAncestry {
         my $to-parent;
-        $!s = do {
-          when WnSelector {
+        $!ws = do {
+          when WnckSelector {
             $to-parent = cast(GtkMenuBar, $_);
             $_;
           }
@@ -45,7 +46,7 @@ class WNCK::Selector is GTK::MenuBar {
     self.bless( :$selector );
   }
   multi method new {
-    self.bless( selector = wnck_selector_new() );
+    self.bless( selector => wnck_selector_new() );
   }
 
   method get_type is also<get-type> {
@@ -62,7 +63,7 @@ sub wnck_selector_get_type ()
 { * }
 
 sub wnck_selector_new ()
-  returns GtkWidget
+  returns WnckSelector
   is native(wnck)
   is export
 { * }

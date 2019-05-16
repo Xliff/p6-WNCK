@@ -26,13 +26,13 @@ sub wnck_application_get_icon_is_fallback (WnckApplication $app)
   { * }
 
 sub wnck_application_get_icon_name (WnckApplication $app)
-  returns char
+  returns Str
   is native(wnck)
   is export
   { * }
 
 sub wnck_application_get_n_windows (WnckApplication $app)
-  returns int
+  returns gint
   is native(wnck)
   is export
   { * }

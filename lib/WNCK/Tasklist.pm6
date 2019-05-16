@@ -12,7 +12,7 @@ use WNCK::Raw::Tasklist;
 
 use GTK::Container;
 
-our TasklistAncestry is export of Mu
+our subset TasklistAncestry is export of Mu
   where WnckTasklist | ContainerAncestry;
 
 class WNCK::Tasklist is GTK::Container {
@@ -63,7 +63,7 @@ class WNCK::Tasklist is GTK::Container {
       FETCH => -> $ {
         $gv = GTK::Compat::Value.new(
           self.prop_get('fade-loop-time', $gv)
-        )
+        );
         $gv.float;
       },
       STORE => -> $, $val is copy {
@@ -79,7 +79,7 @@ class WNCK::Tasklist is GTK::Container {
       FETCH => -> $ {
         $gv = GTK::Compat::Value.new(
           self.prop_get('fade-max-loops', $gv)
-        )
+        );
         $gv.int;
       },
       STORE => -> $, $val is copy {
@@ -95,7 +95,7 @@ class WNCK::Tasklist is GTK::Container {
       FETCH => -> $ {
         $gv = GTK::Compat::Value.new(
           self.prop_get('fade-opacity', $gv)
-        )
+        );
         $gv.float;
       },
       STORE => -> $, $val is copy {
@@ -111,7 +111,7 @@ class WNCK::Tasklist is GTK::Container {
       FETCH => -> $ {
         $gv = GTK::Compat::Value.new(
           self.prop_get('fade-overlay-rect', $gv)
-        )
+        );
         $gv.boolean;
       },
       STORE => -> $, $val is copy {
@@ -146,8 +146,8 @@ class WNCK::Tasklist is GTK::Container {
 
   method set_icon_loader (
     &load_icon_func,
-    Pointer $data           = Pointer,
-    Pointer $free_data_func = Pointer
+    gpointer $data           = gpointer,
+    gpointer $free_data_func = gpointer
   )
     is also<set-icon-loader>
   {

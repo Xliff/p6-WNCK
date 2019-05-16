@@ -1,14 +1,18 @@
 use v6.c;
 
+use Method::Also;
+
 use GTK::Compat::Types;
 use WNCK::Raw::Types;
 
 use GTK::Raw::Utils;
 
+use WNCK::Raw::Utils;
+
 class WNCK::Utils {
 
   method new (|) {
-    warn 'WNCK::Utils is a static class and cannot be instantiated.'
+    warn 'WNCK::Utils is a static class and cannot be instantiated.';
     WNCK::Utils;
   }
 

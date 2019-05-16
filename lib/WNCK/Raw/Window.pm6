@@ -29,7 +29,7 @@ sub wnck_window_get (gulong $xwindow)
 { * }
 
 sub wnck_window_get_actions (WnckWindow $window)
-  returns WnckWindowActions
+  returns uint32 # WnckWindowActions
   is native(wnck)
   is export
 { * }
@@ -47,7 +47,7 @@ sub wnck_window_get_class_group (WnckWindow $window)
 { * }
 
 sub wnck_window_get_class_group_name (WnckWindow $window)
-  returns char
+  returns Str
   is native(wnck)
   is export
 { * }
@@ -87,7 +87,7 @@ sub wnck_window_get_icon_is_fallback (WnckWindow $window)
 { * }
 
 sub wnck_window_get_pid (WnckWindow $window)
-  returns int
+  returns gint
   is native(wnck)
   is export
 { * }
@@ -99,19 +99,19 @@ sub wnck_window_get_screen (WnckWindow $window)
 { * }
 
 sub wnck_window_get_session_id (WnckWindow $window)
-  returns char
+  returns Str
   is native(wnck)
   is export
 { * }
 
 sub wnck_window_get_session_id_utf8 (WnckWindow $window)
-  returns char
+  returns Str
   is native(wnck)
   is export
 { * }
 
 sub wnck_window_get_state (WnckWindow $window)
-  returns WnckWindowState
+  returns guint # WnckWindowState
   is native(wnck)
   is export
 { * }
@@ -129,7 +129,7 @@ sub wnck_window_get_type ()
 { * }
 
 sub wnck_window_get_window_type (WnckWindow $window)
-  returns WnckWindowType
+  returns guint # WnckWindowType
   is native(wnck)
   is export
 { * }
@@ -285,8 +285,8 @@ sub wnck_window_set_fullscreen (WnckWindow $window, gboolean $fullscreen)
 
 sub wnck_window_set_geometry (
   WnckWindow $window,
-  WnckWindowGravity $gravity,
-  WnckWindowMoveResizeMask $geometry_mask,
+  guint $gravity,       # WnckWindowGravity $gravity,
+  guint $geometry_mask, # WnckWindowMoveResizeMask $geometry_mask,
   gint $x,
   gint $y,
   gint $width,
@@ -322,7 +322,10 @@ sub wnck_window_set_sort_order (WnckWindow $window, gint $order)
   is export
 { * }
 
-sub wnck_window_set_window_type (WnckWindow $window, WnckWindowType $wintype)
+sub wnck_window_set_window_type (
+  WnckWindow $window,
+  guint $wintype # WnckWindowType $wintype
+)
   is native(wnck)
   is export
 { * }
@@ -344,13 +347,13 @@ sub wnck_window_transient_is_most_recently_activated (WnckWindow $window)
 { * }
 
 
-sub wnck_window_get_class_instance_name (WnckWindow *window)
+sub wnck_window_get_class_instance_name (WnckWindow $window)
   returns Str
   is native(wnck)
   is export
 { * }
 
-sub wnck_window_get_group_leader (WnckWindow *window)
+sub wnck_window_get_group_leader (WnckWindow $window)
   returns gulong
   is native(wnck)
   is export
@@ -393,12 +396,6 @@ sub wnck_window_is_maximized_vertically (WnckWindow $window)
 { * }
 
 sub wnck_window_is_most_recently_activated (WnckWindow $window)
-  returns gboolean
-  is native(wnck)
-  is export
-{ * }
-
-sub wnck_window_is_pinned (WnckWindow $window)
   returns gboolean
   is native(wnck)
   is export

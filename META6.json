@@ -1,0 +1,27 @@
+{
+  "name": "p6-WNCK",
+  "description": "Perl6 NativeCall Bindings for GNOME's libwnck",
+  "version": "0.01",
+  "perl": "6.*",
+  "auth": "clifton.wood@gmail.com",
+  "depends": [
+    "p6-GtkPlus"
+  ],
+  "build-depends": [],
+  "test-depends": [],
+  "provides": {
+      "WNCK::Raw::Types"             :  "lib/WNCK/Raw/Types.pm6"            ,
+      "WNCK::Raw::Application"       :  "lib/WNCK/Raw/Application.pm6"      ,
+      "WNCK::Raw::Screen"            :  "lib/WNCK/Raw/Screen.pm6"           ,
+      "WNCK::Raw::Window"            :  "lib/WNCK/Raw/Window.pm6"           ,
+      "WNCK::Raw::Workspace"         :  "lib/WNCK/Raw/Workspace.pm6"        ,
+      "WNCK::Roles::Signals::Screen" :  "lib/WNCK/Roles/Signals/Screen.pm6" ,
+      "WNCK::Window"                 :  "lib/WNCK/Window.pm6"               ,
+      "WNCK::Workspace"              :  "lib/WNCK/Workspace.pm6"            ,
+      "WNCK::Application"            :  "lib/WNCK/Application.pm6"          ,
+      "WNCK::Screen"                 :  "lib/WNCK/Screen.pm6"               
+    },
+  "resources": [],
+  "license": "Write me!",
+  "source-url": "https://github.com/Xliff/p6-WNCK.git"
+}

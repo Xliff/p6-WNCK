@@ -28,6 +28,10 @@ class WNCK::Window {
     is also<WnckWindow>
   { $!ww }
 
+  method new (WnckWindow $window) {
+    self.bless(:$window);
+  }
+
   method get (Int() $xid) {
     my gulong $x = resolve-ulong($xid);
     self.bless( window => wnck_window_get($x) );

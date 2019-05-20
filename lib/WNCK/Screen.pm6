@@ -29,6 +29,13 @@ class WNCK::Screen {
     self!setObject( cast(GObject, $!ws = $screen) );
   }
 
+  multi method new {
+    self.get_default;
+  }
+  multi method new (Int() $index) {
+    self.get($index);
+  }
+
   method get_default
     is also<
       get-default
@@ -43,7 +50,13 @@ class WNCK::Screen {
     self.bless( screen => wnck_screen_get($i) );
   }
 
-  method get_for_root (Int() $root_id) {
+  method get_for_root (Int() $root_id)
+    is also<
+      get-for-root
+      new_for_root
+      new-for-root
+    >
+  {
     my gulong $r = resolve-ulong($root_id);
     self.bless( screen => wnck_screen_get_for_root($r) );
   }

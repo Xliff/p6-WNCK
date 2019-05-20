@@ -20,7 +20,6 @@ sub MAIN {
          }notifications";
     $screen.active-window-changed.tap(-> *@a {
       CATCH { default { .message.say } }
-      say 'ohai';
       with $screen.get_active_window {
         say "active: { .get_name }";
       } else {

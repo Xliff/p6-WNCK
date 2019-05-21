@@ -11,6 +11,8 @@ use WNCK::Raw::Window;
 
 use GTK::Compat::Pixbuf;
 
+use GTK::Get;
+
 use GTK::Compat::Roles::Object;
 use GTK::Roles::Signals::Generic;
 
@@ -95,17 +97,19 @@ class WNCK::Window {
     self.connect($!ww, 'workspace-changed');
   }
 
-  method activate (Int() $timestamp) {
+  method activate (Int() $timestamp = GTK::Get.current_event_time) {
     my guint $ts = resolve-uint($timestamp);
     wnck_window_activate($!ww, $ts);
   }
 
-  method activate_transient (Int() $timestamp) is also<activate-transient> {
+  method activate_transient (Int() $timestamp = GTK::Get.current_event_time)
+    is also<activate-transient>
+  {
     my guint $ts = resolve-uint($timestamp);
     wnck_window_activate_transient($!ww, $ts);
   }
 
-  method close (Int() $timestamp) {
+  method close (Int() $timestamp = GTK::Get.current_event_time) {
     my guint $ts = resolve-uint($timestamp);
     wnck_window_close($!ww, $timestamp);
   }
@@ -553,8 +557,9 @@ class WNCK::Window {
     wnck_window_unmaximize_vertically($!ww);
   }
 
-  method unminimize {
-    wnck_window_unminimize($!ww);
+  method unminimize (Int() $timestamp = GTK::Get.current_event_time) {
+    my guint $ts = resolve-uint($timestamp);
+    wnck_window_unminimize($!ww, $ts);
   }
 
   method unpin {

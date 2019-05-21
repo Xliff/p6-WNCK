@@ -444,7 +444,7 @@ sub wnck_window_unmaximize_vertically (WnckWindow $window)
   is export
 { * }
 
-sub wnck_window_unminimize (WnckWindow $window)
+sub wnck_window_unminimize (WnckWindow $window, guint $timestamp)
   is native(wnck)
   is export
 { * }

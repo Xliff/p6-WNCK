@@ -42,7 +42,7 @@ class WNCK::Tasklist is GTK::Container {
   { $!wt }
 
   method new {
-    wnck_tasklist_new();
+    self.bless( tasklist => wnck_tasklist_new() );
   }
 
   method scroll_enabled is rw is also<scroll-enabled> {

@@ -96,3 +96,8 @@ our enum WnckWindowMoveResizeMask is export (
   WNCK_WINDOW_CHANGE_WIDTH  =>  1 +< 2,
   WNCK_WINDOW_CHANGE_HEIGHT =>  1 +< 3,
 );
+
+our enum WnckIconSize is export (
+  WNCK_DEFAULT_ICON_SIZE      => 32,
+  WNCK_DEFAULT_MINI_ICON_SIZE => 16
+);

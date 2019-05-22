@@ -277,7 +277,6 @@ class WNCK::Screen {
       windows
     >
   {
-    say 'WNCK::Screen.get_windows';
     my $l = GTK::Compat::GList.new( wnck_screen_get_windows($!ws) )
        but GTK::Compat::Roles::ListData[WnckWindow];
      $raw ??

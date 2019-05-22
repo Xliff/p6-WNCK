@@ -5,10 +5,17 @@ use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
 use GTK::Compat::Threads;
+use GTK::Compat::Value;
 
 use GTK::Application;
 use GTK::Get;
+use GTK::ListStore;
+use GTK::ScrolledWindow;
 use GTK::TreeView;
+
+use GTK::CellRendererPixbuf;
+use GTK::CellRendererText;
+use GTK::CellRendererToggle;
 
 use WNCK::Screen;
 
@@ -22,11 +29,16 @@ sub MAIN (
   my $app = GTK::Application.new( title => 'org.genex.wnck' );
 
   $app.activate.tap({
+    CATCH { default { .message.say } }
     $app.wait-for-init;
 
     %globals<screen> = WNCK::Screen.get(0);
 
-    %globals<screen>."$_"().tap(-> *@a { ::( "\&on-$_")(|@a) }) for <
+    %globals<screen>."$_"().tap(-> *@a {
+      CATCH { default { .message.say } }
+      ::( "\&on-$_")( |@a );
+     })
+    for <
       active-window-changed
       active-workspace-changed
       window-stacking-changed
@@ -42,9 +54,10 @@ sub MAIN (
     $app.window.title = 'Window List';
     create_tree_model;
     create_tree_view;
+    %globals<tree-view>.model = %globals<tree-model>;
 
     my $sw = GTK::ScrolledWindow.new;
-    $sw.set-policy( |(GTK_POLICY_AUTOMATIC xx 2) );
+    $sw.set-policy(GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
     $sw.add(%globals<tree-view>);
     $app.window.add($sw);
     $app.window.set_default_size(650, 550);
@@ -54,7 +67,8 @@ sub MAIN (
   $app.run;
 }
 
-sub on-active-window-changed ($s, $po, $d) {
+sub on-active-window-changed ($s, $p, $d) {
+  CATCH { default { .message.say } }
   say 'Active window changed';
   update_window($_) with %globals<screen>.get_active_window;
 }
@@ -80,39 +94,42 @@ sub on-workspace-destroyed ($s, $ws, $d) {
   say 'Workspace destoryed';
 }
 
-sub on-application-opened ($s, $app) {
+sub on-application-opened ($s, $app, $d) {
   say 'Application opened';
   queue_refill_model;
 }
 
-sub on-application-closed ($s, $app) {
+sub on-application-closed ($s, $app, $d) {
   say 'Application closed';
   queue_refill_model;
 }
 
-sub on-showind-desktop-changed ($s, $d) {
-  say "Showing desktoip now = { %globals<screen>.get_showing_desktop }";
+sub on-showing-desktop-changed ($s, $d) {
+  say "Showing desktop now = { %globals<screen>.get_showing_desktop }";
 }
 
 sub on-window-opened ($s, $w, $d) {
+  CATCH { default { .message.say } }
+
   my $win = WNCK::Window.new($w);
   my $sid = $win.get-session-id;
-  my $r   = $win.get_role;
+  my $r   = $win.get-role;
   say qq:to/WO/.chomp;
 Window '{ $win.get-name }' opened (pid = { $win.get-pid }, { ''
 }session_id = { $sid ?? $sid !! 'none' }, { ''
 }role = { $r ?? $r !! 'none' })
 WO
 
-  $win."$_"().tap(-> *@b { ::( "\&window-$_" )( |@b ) }) for <
-    name-changed
-    state-changed
-    workspace-changed
-    icon-changed
-    geometry-changed
-    class-changed
-    role-changed
-  >;
+  $win."$_"().tap(-> *@b { ::( "\&window-$_" )( |@b ); })
+    for <
+      name-changed
+      state-changed
+      workspace-changed
+      icon-changed
+      geometry-changed
+      class-changed
+      role-changed
+    >;
 
   queue_refill_model;
 }
@@ -123,12 +140,14 @@ sub window-name-changed ($w, $d) {
 }
 
 sub window-state-changed ($w, $c, $n, $d) {
+  CATCH { default { .message.say } }
+
   say "State changed on window '{ $w.get_name }'";
 
   sub state ($c, $v) {
     say "$c state is:";
     say "  - minimized"     if $v +& WNCK_WINDOW_STATE_MINIMIZED;
-    say "  - maximized H"   if $v +& WNCK_WINDOW_STATE_MAXIMIZED_HORIZONTALLY;
+    say "  - maximized V"   if $v +& WNCK_WINDOW_STATE_MAXIMIZED_VERTICALLY;
     say "  - maximized H"   if $v +& WNCK_WINDOW_STATE_MAXIMIZED_HORIZONTALLY;
     say "  - shaded"        if $v +& WNCK_WINDOW_STATE_SHADED;
     say "  - skip pager"    if $v +& WNCK_WINDOW_STATE_SKIP_PAGER;
@@ -156,6 +175,11 @@ sub window-workspace-changed ($w, $d) {
 }
 
 sub window-icon-changed ($w, $d) {
+  say "Icon changed on window '{ $w.get-name }'";
+  update_window($w);
+}
+
+sub window-geometry-changed ($w, $d) {
   my ($x, $y, $width, $height) = $w.get-geometry;
   say "Geometry changed on window '{ $w.get-name }': {$x},{$y}  {$width}x{$height}";
 }
@@ -172,18 +196,18 @@ sub window-role-changed ($w, $d) {
 }
 
 sub create_tree_model {
-  %globals<tree-model> = GTK::ListStore.new(1, WNCK::Window.get_type).TreeModel;
+  %globals<tree-model> = GTK::ListStore.new( G_TYPE_OBJECT );
 }
 
 sub refill_tree_model {
+  CATCH { default { say "RTM: { .message }" } }
+
   %globals<tree-model>.clear;
-
-  my $windows = %globals<screen>.get_windows;
-  for $windows -> $w {
-    my $i = GtkTreeIter.new;
-
-    %globals<tree_model>.append($i);
-    %globals<tree_model>.set($i, 0, $w);
+  for %globals<screen>.get_windows -> $w {
+    my $i = %globals<tree-model>.append;
+    %globals<tree-model>.set_value(
+      $i, 0, gv_obj($w.WnckWindow)
+    );
     if $w.is_active {
       my $sel = %globals<tree-view>.get-selection;
       $sel.unselect-all;
@@ -197,13 +221,16 @@ sub refill_tree_model {
 sub update_window ($w) {
   return if %globals<refill-idle>;
 
-  my $windows = %globals<screen>.get-windows;
-  my $i = $windows.index($w.WnckWindow.p);
-  return unless $i >= 0;
+  my @windows = %globals<screen>.get-windows;
+  my $i = @windows.keys.grep({
+    $w.defined && @windows[$_].WnckWindow.p == $w.WnckWindow.p
+  })[0];
+
+  return unless $i.defined;
 
   my $iter = GtkTreeIter.new;
   if %globals<tree-model>.iter_nth_child($iter, GtkTreeIter, $i) {
-    %globals<tree-model>.set($iter, 0, $w);
+    %globals<tree-model>.set_value( $iter, 0, gv_obj($w.WnckWindow) );
     if $w.is_active {
       my $sel = %globals<tree-view>.get_selection;
       $sel.unselect_all;
@@ -215,13 +242,15 @@ sub update_window ($w) {
 }
 
 sub get_window ($iter) {
-  my $window = WnckWindow.new;
-  %globals<tree-model>.get($iter, 0, $window);
+  my $gv = %globals<tree-model>.get_value($iter, 0);
+  my $window = WNCK::Window.new( cast(WnckWindow, $gv.object) );
   $window.unref if $window.defined;
-  WNCK::Window.new($window);
+  $window;
 }
 
 sub icon_set_func ($tc, $c, $m, $i, $d) {
+  CATCH { default { .message.say } }
+
   my $w = get_window($i);
   return unless $w.defined;
 
@@ -230,6 +259,8 @@ sub icon_set_func ($tc, $c, $m, $i, $d) {
 }
 
 sub title_set_func ($tc, $c, $m, $i, $d) {
+  CATCH { default { .message.say } }
+
   my $w = get_window($i);
   return unless $w.defined;
 
@@ -238,6 +269,8 @@ sub title_set_func ($tc, $c, $m, $i, $d) {
 }
 
 sub workspace_set_func ($tc, $c, $m, $i, $d) {
+  CATCH { default { .message.say } }
+
   my $w = get_window($i);
   return unless $w.defined;
 
@@ -253,6 +286,8 @@ sub workspace_set_func ($tc, $c, $m, $i, $d) {
 }
 
 sub pid_set_func ($tc, $c, $m, $i, $d) {
+  CATCH { default { .message.say } }
+
   my $w = get_window($i);
   return unless $w.defined;
 
@@ -267,6 +302,8 @@ sub pid_set_func ($tc, $c, $m, $i, $d) {
 }
 
 sub shaded_set_func ($tc, $c, $m, $i, $d) {
+  CATCH { default { .message.say } }
+
   my $w = get_window($i);
   return unless $w.defined;
 
@@ -275,39 +312,45 @@ sub shaded_set_func ($tc, $c, $m, $i, $d) {
 }
 
 sub shaded_toggled_callback ($c, $p, $d) {
-  my $i = %globals<tree-model>.get_iter($p);
+  my $i = %globals<tree-model>.get_iter( GTK::TreePath.new_from_string($p) );
   my $w = get_window($i);
 
   $w.is_shaded ?? $w.unshade !! $w.shade;
 }
 
 sub minimized_set_func ($tv, $c, $m, $i, $d) {
+  CATCH { default { .message.say } }
+
   my $w = get_window($i);
   return unless $w.defined;
 
-  GTK::CellRendererText.new($c).active = $w.is_minimized;
+  GTK::CellRendererToggle.new($c).active = $w.is_minimized;
 }
 
 sub minimized_toggled_callback ($c, $p, $d) {
-  my $i = %globals<tree-model>.get_iter($p);
+  my $i = %globals<tree-model>.get_iter( GTK::TreePath.new_from_string($p) );
   my $w = get_window($i);
   $w.is_minimized ?? $w.unminimized !! $w.minimize;
 }
 
 sub maximized_set_func ($tv, $c, $m, $i, $d) {
+  CATCH { default { .message.say } }
+
   my $w = get_window($i);
   return unless $w.defined;
 
-  GTK::CellRendererText.new($c).active = $w.is_maximized;
+  GTK::CellRendererToggle.new($c).active = $w.is_maximized;
 }
 
 sub maximized_toggled_callback ($c, $p, $d) {
-  my $i = %globals<tree-model>.get_iter($p);
+  my $i = %globals<tree-model>.get_iter( GTK::TreePath.new_from_string($p) );
   my $w = get_window($i);
   $w.is_maximized ?? $w.unmaximize !! $w.minimize;
 }
 
 sub session_id_set_func ($tv, $c, $m, $i, $d) {
+  CATCH { default { .message.say } }
+
   my $w = get_window($i);
   return unless $w.defined;
 
@@ -315,15 +358,17 @@ sub session_id_set_func ($tv, $c, $m, $i, $d) {
   GTK::CellRendererText.new($c).text = $id ?? $id !! 'not session managed';
 }
 
-sub selection_func ($s, $m, $p, $cs, $d, $r) {
+sub selection_func ($s, $m, $p, $cs, $d) {
+  CATCH { default { .message.say } }
+
   my $i = %globals<tree-model>.get_iter($p);
   my $w = get_window($i);
   return unless $w.defined;
 
-  return ($r.r = $w.is_active.not.Int) if $cs.so;
-  return ($r.r = 1) if $w.is_active;
+  return $w.is_active.not.Int if $cs.so;
+  return 1 if $w.is_active;
   $w.activate;
-  $r.r = 0;
+  0;
 }
 
 sub create_tree_view {
@@ -340,7 +385,7 @@ sub create_tree_view {
   my $tc = GTK::CellRendererText.new;
   $col.pack_start($tc, True);
   $col.set_cell_data_func($tc, &title_set_func);
-  %globals<tre-view>.append_column($col);
+  %globals<tree-view>.append_column($col);
 
   for (
     [ 'Workspace',  GTK::CellRendererText.new,   &workspace_set_func ,  Nil ],
@@ -351,21 +396,23 @@ sub create_tree_view {
     [ 'Session ID', GTK::CellRendererText.new,   &session_id_set_func,  Nil ]
   ) {
     %globals<tree-view>.append_column_with_data_func( |$_[^3] );
-    .[1].toggled.tap(-> *@a { .[3]( |@a ) });
+    .[1].toggled.tap(-> *@a { .[3]( |@a ) }) if .[3].defined;
   }
 
-  my $sel = %globals<tree-view>.get_selection;
+  my $sel = %globals<tree-view>.get-selection;
   $sel.mode = GTK_SELECTION_MULTIPLE;
-  $sel.set_sselect_function(&selection_func);
+  $sel.set_select_function(&selection_func);
 }
 
 sub do_refill_model {
+  CATCH { default { .message.say } }
   %globals<refill-idle> = 0;
   refill_tree_model;
   G_SOURCE_REMOVE.Int;
 }
 
 sub queue_refill_model {
+  CATCH { default { .message.say } }
   return if %globals<refill-idle>;
   %globals<tree-model>.clear;
   %globals<refill-idle> = GTK::Compat::Threads.add_idle(

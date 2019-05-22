@@ -298,7 +298,7 @@ class WNCK::Window {
       workspace
     >
   {
-    ::('WNCK.Workspace').wnck_window_get_workspace($!ww);
+    ::('WNCK::Workspace').new( wnck_window_get_workspace($!ww) );
   }
 
   method get_xid

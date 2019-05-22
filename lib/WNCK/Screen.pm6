@@ -245,7 +245,7 @@ class WNCK::Screen {
       showing-desktop
     >
   {
-    so wnck_screen_get_showing_desktop($!ws);
+    wnck_screen_get_showing_desktop($!ws);
   }
 
   method get_window_manager_name
@@ -277,10 +277,11 @@ class WNCK::Screen {
       windows
     >
   {
-    my $l = wnck_screen_get_windows($!ws)
-      but GTK::Compat::Roles::ListData[WnckWindow];
-    $raw ??
-      $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
+    say 'WNCK::Screen.get_windows';
+    my $l = GTK::Compat::GList.new( wnck_screen_get_windows($!ws) )
+       but GTK::Compat::Roles::ListData[WnckWindow];
+     $raw ??
+       $l.Array !! $l.Array.map({ WNCK::Window.new( cast(WnckWindow, $_) ) });
   }
 
   method get_windows_stacked (:$raw = False)
@@ -291,7 +292,7 @@ class WNCK::Screen {
     >
   {
     wnck_screen_get_windows_stacked($!ws);
-    my $l = wnck_screen_get_windows($!ws)
+    my $l = GTK::Compat::GList.new( wnck_screen_get_windows($!ws) )
       but GTK::Compat::Roles::ListData[WnckWindow];
     $raw ??
       $l.Array !! $l.Array.map({ WNCK::Window.new($_) });

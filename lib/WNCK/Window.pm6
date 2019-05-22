@@ -228,6 +228,15 @@ class WNCK::Window {
     wnck_window_get_pid($!ww);
   }
 
+  method get_role
+    is also<
+      get-role
+      role
+    >
+  {
+    wnck_window_get_role($!ww);
+  }
+
   method get_screen
     is also<
       get-screen

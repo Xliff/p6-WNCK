@@ -463,3 +463,9 @@ sub wnck_window_unstick (WnckWindow $window)
   is native(wnck)
   is export
 { * }
+
+sub wnck_window_get_role (WnckWindow $window)
+  returns Str
+  is native(wnck)
+  is export
+{ * }

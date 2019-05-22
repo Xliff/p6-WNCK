@@ -4,6 +4,7 @@ GTK::Compat::Roles::ListData
 GTK::Compat::Roles::Object
 GTK::Compat::Types
 GTK::Container
+GTK::Get
 GTK::Menu
 GTK::MenuBar
 GTK::Raw::Types

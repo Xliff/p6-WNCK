@@ -1,0 +1,399 @@
+{
+  "SUMMARY": {
+    "real": 179.14e0,
+    "sys": 19.72e0,
+    "user": 224.4e0
+  },
+  "GTK::Roles::Signals::Generic": {
+    "mast": 0.004e0,
+    "start": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "moar": 0e0,
+    "parse": 3.253e0,
+    "mbc": 0.001e0,
+    "ast": 0e0
+  },
+  "GTK::Raw::Utils": {
+    "optimize": 0.003e0,
+    "syntaxcheck": 0e0,
+    "start": 0e0,
+    "mast": 0.014e0,
+    "ast": 0e0,
+    "mbc": 0.002e0,
+    "parse": 2.389e0,
+    "moar": 0e0
+  },
+  "tainted": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "GTK::Compat::GList": {
+    "mast": 0.003e0,
+    "start": 0e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.001e0,
+    "parse": 2.121e0,
+    "moar": 0e0,
+    "mbc": 0.001e0,
+    "ast": 0e0
+  },
+  "WNCK::Application": {
+    "parse": 7.235e0,
+    "moar": 0e0,
+    "mbc": 0.003e0,
+    "ast": 0e0,
+    "mast": 0.014e0,
+    "start": 0e0,
+    "optimize": 0.003e0,
+    "syntaxcheck": 0e0
+  },
+  "WNCK::Pager": {
+    "ast": 0e0,
+    "mbc": 0.001e0,
+    "parse": 7.745e0,
+    "moar": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "start": 0e0,
+    "mast": 0.004e0
+  },
+  "GTK::Raw::Types": {
+    "mast": 0.039e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.034e0,
+    "start": 0e0,
+    "mbc": 0.013e0,
+    "parse": 3.143e0,
+    "moar": 0e0,
+    "ast": 0e0
+  },
+  "WNCK::Raw::Tasklist": {
+    "ast": 0e0,
+    "moar": 0e0,
+    "parse": 3.194e0,
+    "mbc": 0.002e0,
+    "start": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "mast": 0.004e0
+  },
+  "DEPENDENCIES": {
+    "user": 1.71e0,
+    "sys": 0.19e0,
+    "real": 1.22e0
+  },
+  "WNCK::Workspace": {
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "start": 0e0,
+    "mast": 0.004e0,
+    "ast": 0e0,
+    "mbc": 0.001e0,
+    "parse": 3.949e0,
+    "moar": 0e0
+  },
+  "WNCK::Screen": {
+    "moar": 0e0,
+    "parse": 9.252e0,
+    "mbc": 0.002e0,
+    "ast": 0e0,
+    "mast": 0.012e0,
+    "start": 0e0,
+    "optimize": 0.003e0,
+    "syntaxcheck": 0e0
+  },
+  "WNCK::Raw::Window": {
+    "ast": 0e0,
+    "moar": 0e0,
+    "parse": 3.234e0,
+    "mbc": 0.002e0,
+    "start": 0e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.003e0,
+    "mast": 0.007e0
+  },
+  "GTK::Compat::Roles::Object": {
+    "start": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "mast": 0.003e0,
+    "ast": 0e0,
+    "moar": 0e0,
+    "parse": 2.368e0,
+    "mbc": 0.001e0
+  },
+  "Method::Also": {
+    "mast": 0.013e0,
+    "optimize": 0.004e0,
+    "syntaxcheck": 0e0,
+    "start": 0e0,
+    "mbc": 0.002e0,
+    "parse": 2.26e0,
+    "moar": 0e0,
+    "ast": 0e0
+  },
+  "WNCK::Roles::Signals::Screen": {
+    "moar": 0e0,
+    "parse": 3.537e0,
+    "mbc": 0.001e0,
+    "ast": 0e0,
+    "mast": 0.005e0,
+    "start": 0e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.001e0
+  },
+  "WNCK::Selector": {
+    "mast": 0.003e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "start": 0e0,
+    "mbc": 0.001e0,
+    "moar": 0e0,
+    "parse": 8.941e0,
+    "ast": 0e0
+  },
+  "WNCK::Raw::Types": {
+    "ast": 0e0,
+    "moar": 0e0,
+    "parse": 2.942e0,
+    "mbc": 0.025e0,
+    "start": 0e0,
+    "optimize": 0.002e0,
+    "syntaxcheck": 0e0,
+    "mast": 0.006e0
+  },
+  "WNCK::Raw::Utils": {
+    "mbc": 0.001e0,
+    "parse": 2.958e0,
+    "moar": 0e0,
+    "ast": 0e0,
+    "mast": 0.004e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.001e0,
+    "start": 0e0
+  },
+  "GTK::Widget": {
+    "mast": 0.003e0,
+    "start": 0e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.001e0,
+    "parse": 7.385e0,
+    "moar": 0e0,
+    "mbc": 0.001e0,
+    "ast": 0e0
+  },
+  "GTK::Menu": {
+    "start": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "mast": 0.003e0,
+    "ast": 0e0,
+    "parse": 8.948e0,
+    "moar": 0e0,
+    "mbc": 0.001e0
+  },
+  "WNCK::Raw::Screen": {
+    "optimize": 0.002e0,
+    "syntaxcheck": 0e0,
+    "start": 0e0,
+    "mast": 0.005e0,
+    "ast": 0e0,
+    "mbc": 0.002e0,
+    "parse": 3.104e0,
+    "moar": 0e0
+  },
+  "WNCK::Tasklist": {
+    "ast": 0e0,
+    "mbc": 0.001e0,
+    "parse": 8.168e0,
+    "moar": 0e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.001e0,
+    "start": 0e0,
+    "mast": 0.002e0
+  },
+  "WNCK::Raw::Application": {
+    "syntaxcheck": 0e0,
+    "optimize": 0.002e0,
+    "start": 0e0,
+    "mast": 0.004e0,
+    "ast": 0e0,
+    "mbc": 0.001e0,
+    "parse": 3.052e0,
+    "moar": 0e0
+  },
+  "WNCK::Utils": {
+    "moar": 0e0,
+    "parse": 3.327e0,
+    "mbc": 0.001e0,
+    "ast": 0e0,
+    "mast": 0.019e0,
+    "start": 0e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.001e0
+  },
+  "GTK::Compat::Pixbuf": {
+    "mast": 0.003e0,
+    "start": 0e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.001e0,
+    "moar": 0e0,
+    "parse": 2.385e0,
+    "mbc": 0.001e0,
+    "ast": 0e0
+  },
+  "WNCK::ClassGroup": {
+    "ast": 0e0,
+    "mbc": 0.002e0,
+    "moar": 0e0,
+    "parse": 7.401e0,
+    "optimize": 0.003e0,
+    "syntaxcheck": 0e0,
+    "start": 0e0,
+    "mast": 0.012e0
+  },
+  "WNCK::Window": {
+    "start": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "mast": 0.003e0,
+    "ast": 0e0,
+    "parse": 11.806e0,
+    "moar": 0e0,
+    "mbc": 0.001e0
+  },
+  "GTK::Roles::Pointers": {
+    "ast": 0e0,
+    "mbc": 0.002e0,
+    "moar": 0e0,
+    "parse": 2.573e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.001e0,
+    "start": 0e0,
+    "mast": 0.005e0
+  },
+  "WNCK::Raw::Workspace": {
+    "parse": 3.07e0,
+    "moar": 0e0,
+    "mbc": 0.002e0,
+    "ast": 0e0,
+    "mast": 0.005e0,
+    "start": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0
+  },
+  "WNCK::Raw::ClassGroup": {
+    "mast": 0.004e0,
+    "start": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "parse": 3.213e0,
+    "moar": 0e0,
+    "mbc": 0.002e0,
+    "ast": 0e0
+  },
+  "GTK::MenuBar": {
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "start": 0e0,
+    "mast": 0.002e0,
+    "ast": 0e0,
+    "mbc": 0.001e0,
+    "parse": 8.606e0,
+    "moar": 0e0
+  },
+  "GTK::Compat::Types": {
+    "syntaxcheck": 0e0,
+    "optimize": 0.013e0,
+    "start": 0e0,
+    "mast": 0.026e0,
+    "ast": 0e0,
+    "mbc": 0.008e0,
+    "parse": 2.035e0,
+    "moar": 0e0
+  },
+  "GTK::Compat::Roles::ListData": {
+    "start": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "mast": 0.003e0,
+    "ast": 0e0,
+    "parse": 2.004e0,
+    "moar": 0e0,
+    "mbc": 0.001e0
+  },
+  "WNCK::ActionMenu": {
+    "ast": 0e0,
+    "parse": 11.695e0,
+    "moar": 0e0,
+    "mbc": 0.002e0,
+    "start": 0e0,
+    "optimize": 0.004e0,
+    "syntaxcheck": 0e0,
+    "mast": 0.013e0
+  },
+  "WNCK::Raw::Pager": {
+    "mast": 0.007e0,
+    "syntaxcheck": 0e0,
+    "optimize": 0.001e0,
+    "start": 0e0,
+    "mbc": 0.001e0,
+    "parse": 3.49e0,
+    "moar": 0e0,
+    "ast": 0e0
+  },
+  "GTK::Container": {
+    "mast": 0.002e0,
+    "start": 0e0,
+    "optimize": 0.001e0,
+    "syntaxcheck": 0e0,
+    "moar": 0e0,
+    "parse": 5.828e0,
+    "mbc": 0.001e0,
+    "ast": 0e0
+  },
+  "GTK::Get": {
+    "mast": 0.027e0,
+    "optimize": 0.004e0,
+    "syntaxcheck": 0e0,
+    "start": 0e0,
+    "mbc": 0.002e0,
+    "moar": 0e0,
+    "parse": 8.167e0,
+    "ast": 0e0
+  }
+}

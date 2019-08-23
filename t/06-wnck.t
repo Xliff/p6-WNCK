@@ -223,7 +223,7 @@ sub update_window ($w) {
 
   my @windows = %globals<screen>.get-windows;
   my $i = @windows.keys.grep({
-    $w.defined && @windows[$_].WnckWindow.p == $w.WnckWindow.p
+    +$w.defined && @windows[$_].WnckWindow.p == +$w.WnckWindow.p
   })[0];
 
   return unless $i.defined;

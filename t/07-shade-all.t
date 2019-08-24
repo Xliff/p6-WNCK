@@ -1,34 +1,31 @@
 use v6.c;
 
-use GTK::Compat::Source;
+use GTK::Compat::MainLoop;
 use GTK::Compat::Timeout;
-
-use GTK::Application;
+use GDK::Main;
 
 use WNCK::Application;
 use WNCK::Screen;
 use WNCK::Window;
 
 sub MAIN {
-  my $app = GTK::Application.new;
+  GDK::Main.init;
 
-  $app.activate.tap(-> *@a {
-    $app.wait-for-init;
-    
-    my $screen = WNCK::Screen.get(0);
+  my ($loop, $screen, $to) = ( GTK::Compat::MainLoop.new, WNCK::Screen.get(0) );
 
-    $screen.application-opened.tap(-> *@b {
-      CATCH { default { .message.say } }
-      for WNCK::Application.new( @b[1] ).windows {
-        .shade unless .name.contains('Konsole');
-      }
-    });
+  $screen.application-opened.tap(-> *@b {
+    CATCH { default { .message.say } }
 
-    GTK::Compat::Timeout.simple-timeout-in-seconds(1).tap(-> *@a {
-      $app.exit;
-    });
-
+    GTK::Compat::Timeout.cancel($to) if $to.defined;
+    for WNCK::Application.new( @b[1] ).windows {
+      .shade unless .name.contains('Konsole');
+    }
+    # If this signal hasn't been emitted for half a second, assume all
+    # applications have been processed, then quit. We only need to do
+    # this ONCE.
+    $to = GTK::Compat::Timeout.add(500, -> *@a { $loop.quit; 0 });
   });
 
-  $app.run;
+  $loop.run;
+  $loop.unref;
 }

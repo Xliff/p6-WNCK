@@ -3,3 +3,4 @@ LastBuildResults
 LastBuildResults.*
 scripts/
 *.bak
+*.old

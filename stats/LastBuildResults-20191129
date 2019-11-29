@@ -1,0 +1,504 @@
+Dependency Generation
+=====================
+real 0.58
+user 0.94
+sys 0.03
+ === GTK::Compat::GList ===
+Stage start      :   0.000
+Stage parse      :   0.954
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Compat::Pixbuf ===
+Stage start      :   0.000
+Stage parse      :   1.412
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Compat::Roles::ListData ===
+Stage start      :   0.000
+Stage parse      :   0.939
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Compat::Roles::Object ===
+Stage start      :   0.000
+Stage parse      :   0.981
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Compat::Types ===
+Stage start      :   0.000
+Stage parse      :   0.948
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.009
+Stage mast       :   0.014
+Stage mbc        :   0.007
+Stage moar       :   0.000
+ === GTK::Container ===
+Stage start      :   0.000
+Stage parse      :   2.726
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Get ===
+Stage start      :   0.000
+Stage parse      :   1.408
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Menu ===
+Stage start      :   0.000
+Stage parse      :   3.224
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::MenuBar ===
+Stage start      :   0.000
+Stage parse      :   3.121
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Raw::Types ===
+Stage start      :   0.000
+Stage parse      :   0.969
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.007
+Stage mast       :   0.009
+Stage mbc        :   0.004
+Stage moar       :   0.000
+ === GTK::Raw::Utils ===
+Stage start      :   0.000
+Stage parse      :   0.905
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Roles::Pointers ===
+Stage start      :   0.000
+Stage parse      :   0.888
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Roles::Signals::Generic ===
+Stage start      :   0.000
+Stage parse      :   1.310
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Widget ===
+Stage start      :   0.000
+Stage parse      :   1.407
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === Method::Also ===
+Stage start      :   0.000
+Stage parse      :   0.902
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::Types ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Raw/Types.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.458
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.071
+    Stage mbc        :   0.004
+Stage parse      :   2.560
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::Application ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Raw/Application.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.776
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.057
+    Stage mbc        :   0.004
+Stage parse      :   2.853
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::ClassGroup ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Raw/ClassGroup.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.560
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.016
+    Stage mast       :   0.051
+    Stage mbc        :   0.004
+Stage parse      :   2.635
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::Pager ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Raw/Pager.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.821
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.059
+    Stage mbc        :   0.006
+Stage parse      :   2.907
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::Screen ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Raw/Screen.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.686
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.021
+    Stage mast       :   0.083
+    Stage mbc        :   0.005
+Stage parse      :   3.804
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::Tasklist ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Raw/Tasklist.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.841
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.058
+    Stage mbc        :   0.004
+Stage parse      :   2.897
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::Utils ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Raw/Utils.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.394
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.047
+    Stage mbc        :   0.004
+Stage parse      :   2.436
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::Window ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Raw/Window.pm6
+    Stage start      :   0.000
+    Stage parse      :   5.783
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.043
+    Stage mast       :   0.167
+    Stage mbc        :   0.007
+Stage parse      :   7.037
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.004
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::Workspace ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Raw/Workspace.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.057
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.061
+    Stage mbc        :   0.004
+Stage parse      :   3.200
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Roles::Signals::Screen ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Roles/Signals/Screen.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.603
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.076
+    Stage mbc        :   0.004
+Stage parse      :   2.782
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Selector ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Selector.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.105
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.187
+    Stage mbc        :   0.007
+Stage parse      :   4.222
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Tasklist ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Tasklist.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.790
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.184
+    Stage mbc        :   0.009
+Stage parse      :   3.699
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Utils ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Utils.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.090
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.010
+    Stage mast       :   0.086
+    Stage mbc        :   0.005
+Stage parse      :   2.244
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Window ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Window.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.131
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.048
+    Stage mast       :   0.145
+    Stage mbc        :   0.010
+Stage parse      :   3.528
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Workspace ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Workspace.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.495
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.068
+    Stage mbc        :   0.004
+Stage parse      :   2.659
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::ActionMenu ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/ActionMenu.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.174
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.199
+    Stage mbc        :   0.007
+Stage parse      :   4.334
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Application ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Application.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.593
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.018
+    Stage mast       :   0.087
+    Stage mbc        :   0.004
+Stage parse      :   2.925
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::ClassGroup ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/ClassGroup.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.468
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.083
+    Stage mbc        :   0.004
+Stage parse      :   2.745
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Pager ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Pager.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.641
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.025
+    Stage mast       :   0.169
+    Stage mbc        :   0.008
+Stage parse      :   3.376
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Screen ===
+Stage start      :   0.000
+
+    precomp ../../../../cbwood/Projects/p6-WNCK/lib/WNCK/Screen.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.909
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.024
+    Stage mast       :   0.123
+    Stage mbc        :   0.005
+Stage parse      :   3.275
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+
+real 90.09
+user 112.18
+sys 5.62

@@ -4,3 +4,4 @@ LastBuildResults.*
 scripts/
 *.bak
 *.old
+.touch/

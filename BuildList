@@ -1,3 +1,4 @@
+GLib::Value
 GTK::Compat::GList
 GTK::Compat::Pixbuf
 GTK::Compat::Roles::ListData

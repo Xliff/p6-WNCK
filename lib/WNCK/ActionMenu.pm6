@@ -9,6 +9,7 @@ use WNCK::Raw::Types;
 
 use GTK::Menu;
 
+use GLib::Value;
 use WNCK::Window;
 
 our subset ActionMenuAncestry is export of Mu
@@ -55,10 +56,10 @@ class WNCK::ActionMenu is GTK::Menu {
 
   # Type: gpointer
   method window is rw  {
-    my GTK::Compat::Value $gv .= new( G_TYPE_OBJECT );
+    my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
       FETCH => -> $ {
-        $gv = GTK::Compat::Value.new(
+        $gv = GLib::Value.new(
           self.prop_get('window', $gv)
         );
         WNCK::Window.new( cast(WnckWindow, $gv.object) );

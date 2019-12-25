@@ -10,6 +10,7 @@ use GTK::Raw::Utils;
 
 use WNCK::Raw::Tasklist;
 
+use GLib::Value;
 use GTK::Container;
 
 our subset TasklistAncestry is export of Mu
@@ -58,10 +59,10 @@ class WNCK::Tasklist is GTK::Container {
 
   # Type: gfloat
   method fade-loop-time is rw is also<fade_loop_time> {
-    my GTK::Compat::Value $gv .= new( G_TYPE_FLOAT );
+    my GLib::Value $gv .= new( G_TYPE_FLOAT );
     Proxy.new(
       FETCH => -> $ {
-        $gv = GTK::Compat::Value.new(
+        $gv = GLib::Value.new(
           self.prop_get('fade-loop-time', $gv)
         );
         $gv.float;
@@ -74,10 +75,10 @@ class WNCK::Tasklist is GTK::Container {
 
   # Type: gint
   method fade-max-loops is rw is also<fade_max_loops> {
-    my GTK::Compat::Value $gv .= new( G_TYPE_INT );
+    my GLib::Value $gv .= new( G_TYPE_INT );
     Proxy.new(
       FETCH => -> $ {
-        $gv = GTK::Compat::Value.new(
+        $gv = GLib::Value.new(
           self.prop_get('fade-max-loops', $gv)
         );
         $gv.int;
@@ -90,10 +91,10 @@ class WNCK::Tasklist is GTK::Container {
 
   # Type: gfloat
   method fade-opacity is rw is also<fade_opacity> {
-    my GTK::Compat::Value $gv .= new( G_TYPE_FLOAT );
+    my GLib::Value $gv .= new( G_TYPE_FLOAT );
     Proxy.new(
       FETCH => -> $ {
-        $gv = GTK::Compat::Value.new(
+        $gv = GLib::Value.new(
           self.prop_get('fade-opacity', $gv)
         );
         $gv.float;
@@ -106,10 +107,10 @@ class WNCK::Tasklist is GTK::Container {
 
   # Type: gint
   method fade-overlay-rect is rw is also<fade_overlay_rect> {
-    my GTK::Compat::Value $gv .= new( G_TYPE_BOOLEAN );
+    my GLib::Value $gv .= new( G_TYPE_BOOLEAN );
     Proxy.new(
       FETCH => -> $ {
-        $gv = GTK::Compat::Value.new(
+        $gv = GLib::Value.new(
           self.prop_get('fade-overlay-rect', $gv)
         );
         $gv.boolean;

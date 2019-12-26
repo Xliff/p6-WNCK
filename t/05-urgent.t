@@ -6,8 +6,8 @@ use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
 use GTK::Compat::Timeout;
-use GTK::Compat::Source;
 
+use GLib::Source;
 use GTK::Application;
 use GTK::Label;
 
@@ -40,7 +40,7 @@ sub MAIN {
       CATCH { default { .message.say } }
       set-urgent($app.window, False);
       my $id = $app.window.get_data_uint('wnck-timeout');
-      GTK::Compat::Source.remove($id) if $id.defined;
+      GLib::Source.remove($id) if $id.defined;
       @a[*-1].r = 0;
     });
 

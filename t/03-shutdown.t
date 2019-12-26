@@ -3,7 +3,7 @@ use v6.c;
 
 use GTK::Compat::Types;
 use GTK::Compat::MainLoop;
-use GTK::Compat::Timeout;
+use GLib::Timeout;
 
 use GTK::Application;
 use WNCK::Screen;
@@ -26,12 +26,12 @@ sub MAIN {
         say "no active window";
       }
     });
-    GTK::Compat::Timeout.add_seconds(5, -> *@a { $loop.quit; 0 });
+    GLib::Timeout.add_seconds(5, -> *@a { $loop.quit; 0 });
     $loop.run;
 
     say "libwnck is shutting down for 5 seconds; no notification will happen.";
     WNCK::Utils.shutdown;
-    GTK::Compat::Timeout.add_seconds(5, -> *@a { $loop.quit; 0 });
+    GLib::Timeout.add_seconds(5, -> *@a { $loop.quit; 0 });
     $loop.run;
     say 'libwnck is getting reinitialized...';
   };

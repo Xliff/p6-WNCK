@@ -5,7 +5,7 @@ use GTK::Compat::Types;
 use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
-use GTK::Compat::Timeout;
+use GLib::Timeout;
 
 use GLib::Source;
 use GTK::Application;
@@ -46,7 +46,7 @@ sub MAIN {
 
     $app.window.focus-out-event.tap(-> *@a --> gboolean {
       CATCH { default { .message.say } }
-      my $id = GTK::Compat::Timeout.add_seconds(3, -> *@a --> gboolean {
+      my $id = GLib::Timeout.add_seconds(3, -> *@a --> gboolean {
         CATCH { default { .message.say } }
         make-urgent($app.window)
       });

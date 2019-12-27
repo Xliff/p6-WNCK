@@ -83,8 +83,8 @@ class WNCK::ClassGroup {
       windows
     >
   {
-    my $l = GTK::Compat::GList.new( wnck_class_group_get_windows($!wcg) )
-      but GTK::Compat::Roles::ListData[WnckWindow];
+    my $l = GLib::GList.new( wnck_class_group_get_windows($!wcg) )
+      but GLib::Roles::ListData[WnckWindow];
     $raw ??
       $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
   }

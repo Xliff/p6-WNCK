@@ -9,12 +9,12 @@ use GTK::Raw::Utils;
 
 use WNCK::Raw::Application;
 
-use GTK::Compat::GList;
+use GLib::GList;
 use GTK::Compat::Pixbuf;
 
 use WNCK::Window;
 
-use GTK::Compat::Roles::ListData;
+use GLib::Roles::ListData;
 use GTK::Compat::Roles::Object;
 
 use GTK::Roles::Signals::Generic;
@@ -108,8 +108,8 @@ class WNCK::Application {
       windows
     >
   {
-    my $l = GTK::Compat::GList.new( wnck_application_get_windows($!wa) )
-      but GTK::Compat::Roles::ListData[WnckWindow];
+    my $l = GLib::GList.new( wnck_application_get_windows($!wa) )
+      but GLib::Roles::ListData[WnckWindow];
     $raw ??
       $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
   }

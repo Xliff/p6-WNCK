@@ -9,12 +9,12 @@ use GTK::Raw::Utils;
 
 use WNCK::Raw::Screen;
 
-use GTK::Compat::GList;
+use GLib::GList;
 
 use WNCK::Window;
 use WNCK::Workspace;
 
-use GTK::Compat::Roles::ListData;
+use GLib::Roles::ListData;
 use GTK::Compat::Roles::Object;
 
 use WNCK::Roles::Signals::Screen;
@@ -277,8 +277,8 @@ class WNCK::Screen {
       windows
     >
   {
-    my $l = GTK::Compat::GList.new( wnck_screen_get_windows($!ws) )
-       but GTK::Compat::Roles::ListData[WnckWindow];
+    my $l = GLib::GList.new( wnck_screen_get_windows($!ws) )
+       but GLib::Roles::ListData[WnckWindow];
      $raw ??
        $l.Array !! $l.Array.map({ WNCK::Window.new( cast(WnckWindow, $_) ) });
   }
@@ -291,8 +291,8 @@ class WNCK::Screen {
     >
   {
     wnck_screen_get_windows_stacked($!ws);
-    my $l = GTK::Compat::GList.new( wnck_screen_get_windows($!ws) )
-      but GTK::Compat::Roles::ListData[WnckWindow];
+    my $l = GLib::GList.new( wnck_screen_get_windows($!ws) )
+      but GLib::Roles::ListData[WnckWindow];
     $raw ??
       $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
   }
@@ -308,7 +308,7 @@ class WNCK::Screen {
       workspaces
     >
   {
-    my $l = GTK::Compat::GList.new( wnck_screen_get_workspaces($!ws) )
+    my $l = GLib::GList.new( wnck_screen_get_workspaces($!ws) )
       but GTK::Compat::ListData[WnckWorkspace];
     $raw ??
       $l.Array !! $l.Array.map({ WNCK::Workspace.new($_) });

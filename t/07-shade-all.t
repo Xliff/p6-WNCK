@@ -1,6 +1,6 @@
 use v6.c;
 
-use GTK::Compat::MainLoop;
+use GLib::MainLoop;
 use GLib::Timeout;
 use GDK::Main;
 
@@ -11,7 +11,7 @@ use WNCK::Window;
 sub MAIN {
   GDK::Main.init;
 
-  my ($loop, $screen, $to) = ( GTK::Compat::MainLoop.new, WNCK::Screen.get(0) );
+  my ($loop, $screen, $to) = ( GLib::MainLoop.new, WNCK::Screen.get(0) );
 
   $screen.application-opened.tap(-> *@b {
     CATCH { default { .message.say } }

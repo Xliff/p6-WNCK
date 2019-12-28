@@ -2,7 +2,7 @@
 use v6.c;
 
 use GTK::Compat::Types;
-use GTK::Compat::MainLoop;
+use GLib::MainLoop;
 use GLib::Timeout;
 
 use GTK::Application;
@@ -12,7 +12,7 @@ use WNCK::Utils;
 sub MAIN {
   GTK::Application.init;
 
-  my $loop = GTK::Compat::MainLoop.new(GMainContext, False);
+  my $loop = GLib::MainLoop.new(GMainContext, False);
 
   while True {
     my $screen = WNCK::Screen.new;

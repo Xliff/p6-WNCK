@@ -15,12 +15,12 @@ use GTK::Compat::Pixbuf;
 use WNCK::Window;
 
 use GLib::Roles::ListData;
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use GTK::Roles::Signals::Generic;
 
 class WNCK::Application {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   also does GTK::Roles::Signals::Generic;
 
   has WnckApplication $!wa;

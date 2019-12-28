@@ -1,8 +1,8 @@
 GLib::GList
 GLib::Roles::ListData
+GLib::Roles::Object
 GLib::Value
 GTK::Compat::Pixbuf
-GTK::Compat::Roles::Object
 GTK::Compat::Types
 GTK::Container
 GTK::Get

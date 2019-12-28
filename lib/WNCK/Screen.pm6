@@ -15,12 +15,12 @@ use WNCK::Window;
 use WNCK::Workspace;
 
 use GLib::Roles::ListData;
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use WNCK::Roles::Signals::Screen;
 
 class WNCK::Screen {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   also does WNCK::Roles::Signals::Screen;
 
   has WnckScreen $!ws;

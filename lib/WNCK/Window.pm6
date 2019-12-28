@@ -13,11 +13,11 @@ use GTK::Compat::Pixbuf;
 
 use GTK::Get;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 use GTK::Roles::Signals::Generic;
 
 class WNCK::Window {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   also does GTK::Roles::Signals::Generic;
 
   has WnckWindow $!ww;

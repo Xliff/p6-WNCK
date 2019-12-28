@@ -9,11 +9,11 @@ use GTK::Raw::Utils;
 
 use WNCK::Raw::Workspace;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 use GTK::Roles::Signals::Generic;
 
 class WNCK::Workspace {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   also does GTK::Roles::Signals::Generic;
 
   has WnckWorkspace $!wws;

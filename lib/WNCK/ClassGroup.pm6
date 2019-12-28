@@ -7,14 +7,14 @@ use WNCK::Raw::Types;
 
 use WNCK::Raw::ClassGroup;
 
-use GTK::Compat::Roles::Object;
+use GLib::Roles::Object;
 
 use WNCK::Window;
 
 use GTK::Roles::Signals::Generic;
 
 class WNCK::ClassGroup {
-  also does GTK::Compat::Roles::Object;
+  also does GLib::Roles::Object;
   also does GTK::Roles::Signals::Generic;
 
   has WnckClassGroup $!wcg;

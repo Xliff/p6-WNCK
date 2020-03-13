@@ -3,8 +3,6 @@ use v6.c;
 use NativeCall;
 use Method::Also;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
 use GTK::Menu;
@@ -33,6 +31,7 @@ class WNCK::ActionMenu is GTK::Menu {
             $to-parent = cast(GtkMenu, $_);
             $_;
           }
+
           default {
             $to-parent = $_;
             cast(WnckActionMenu, $_);
@@ -40,29 +39,38 @@ class WNCK::ActionMenu is GTK::Menu {
         }
         self.setMenu($to-parent);
       }
+
       when WNCK::ActionMenu {
       }
+
       default {
       }
     }
   }
 
   multi method new (ActionMenuAncestry $actionmenu) {
-    self.bless( :$actionmenu );
+    $actionmenu ?? self.bless( :$actionmenu ) !! WnckActionMenu;
   }
   multi method new (WnckWindow() $window) {
-    self.bless( actionmenu => wnck_action_menu_new($window) );
+    my $actionmenu = wnck_action_menu_new($window);
+
+    $actionmenu ?? self.bless( :$actionmenu ) !! WnckActionMenu;
   }
 
   # Type: gpointer
-  method window is rw  {
+  method window (:$raw = False) is rw  {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
       FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('window', $gv)
         );
-        WNCK::Window.new( cast(WnckWindow, $gv.object) );
+
+        return WnckWindow unless $gv.object;
+
+        my $w = cast(WnckWindow, $gv.object);
+
+        $raw ?? $w !! WNCK::Window.new($w);
       },
       STORE => -> $, $val is copy {
         warn 'Can only set WNCK::ActionMenu.window at construct-time';
@@ -72,6 +80,7 @@ class WNCK::ActionMenu is GTK::Menu {
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &wnck_action_menu_get_type, $n, $t );
   }
 

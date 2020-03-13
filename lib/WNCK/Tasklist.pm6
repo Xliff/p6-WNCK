@@ -61,7 +61,7 @@ class WNCK::Tasklist is GTK::Container {
   method fade-loop-time is rw is also<fade_loop_time> {
     my GLib::Value $gv .= new( G_TYPE_FLOAT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('fade-loop-time', $gv)
         );
@@ -77,7 +77,7 @@ class WNCK::Tasklist is GTK::Container {
   method fade-max-loops is rw is also<fade_max_loops> {
     my GLib::Value $gv .= new( G_TYPE_INT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('fade-max-loops', $gv)
         );
@@ -93,7 +93,7 @@ class WNCK::Tasklist is GTK::Container {
   method fade-opacity is rw is also<fade_opacity> {
     my GLib::Value $gv .= new( G_TYPE_FLOAT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('fade-opacity', $gv)
         );
@@ -109,7 +109,7 @@ class WNCK::Tasklist is GTK::Container {
   method fade-overlay-rect is rw is also<fade_overlay_rect> {
     my GLib::Value $gv .= new( G_TYPE_BOOLEAN );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('fade-overlay-rect', $gv)
         );

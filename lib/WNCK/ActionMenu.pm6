@@ -58,7 +58,7 @@ class WNCK::ActionMenu is GTK::Menu {
   method window is rw  {
     my GLib::Value $gv .= new( G_TYPE_OBJECT );
     Proxy.new(
-      FETCH => -> $ {
+      FETCH => sub ($) {
         $gv = GLib::Value.new(
           self.prop_get('window', $gv)
         );

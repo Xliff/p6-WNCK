@@ -2,17 +2,12 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
 use WNCK::Raw::Types;
-
-use GTK::Raw::Utils;
-
 use WNCK::Raw::Pager;
 
 use GTK::Widget;
 
-our subset PagerAncestry is export of Mu
+our subset WnckPagerAncestry is export of Mu
   where WnckPager | WidgetAncestry;
 
 class WNCK::Pager is GTK::Widget {
@@ -26,13 +21,14 @@ class WNCK::Pager is GTK::Widget {
 
   submethod BUILD (:$pager) {
     given $pager {
-      when PagerAncestry {
+      when WnckPagerAncestry {
         my $to-parent;
         $!wp = do {
           when WnckPager {
             $to-parent = cast(GtkWidget, $_);
             $_;
           }
+
           default {
             $to-parent = $_;
             cast(WnckPager, $_);
@@ -40,18 +36,26 @@ class WNCK::Pager is GTK::Widget {
         }
         self.setWidget($to-parent);
       }
+
       when WNCK::Pager {
       }
+
       default {
       }
     }
   }
 
   method WNCK::Raw::Types::WnckPager
+    is also<WnckPager>
   { $!wp }
 
-  method new () {
-    self.bless( pager => wnck_pager_new() );
+  multi method new (WnckPagerAncestry $pager) {
+    $pager ?? self.bless(:$pager) !! WnckPager;
+  }
+  multi method new {
+    my $pager = wnck_pager_new();
+
+    $pager ?? self.bless(:$pager) !! WnckPager;
   }
 
   method wrap_on_scroll is rw is also<wrap-on-scroll> {
@@ -60,7 +64,8 @@ class WNCK::Pager is GTK::Widget {
         so wnck_pager_get_wrap_on_scroll($!wp);
       },
       STORE => sub ($, Int() $wrap_on_scroll is copy) {
-        my gboolean $wos = resolve-bool($wrap_on_scroll);
+        my gboolean $wos = $wrap_on_scroll.so.Int;
+
         wnck_pager_set_wrap_on_scroll($!wp, $wos);
       }
     );
@@ -68,31 +73,37 @@ class WNCK::Pager is GTK::Widget {
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &wnck_pager_get_type, $n, $t );
   }
 
   method set_display_mode (Int() $mode) is also<set-display-mode> {
-    my guint $m = resolve-int($mode);
+    my guint $m = $mode;
+
     wnck_pager_set_display_mode($!wp, $m);
   }
 
   method set_n_rows (Int() $n_rows) is also<set-n-rows> {
-    my gint $nr = resolve-int($n_rows);
+    my gint $nr = $n_rows;
+
     wnck_pager_set_n_rows($!wp, $nr);
   }
 
   method set_orientation (Int() $orientation) is also<set-orientation> {
-    my guint $o = resolve-uint($orientation);
+    my guint $o = $orientation;
+
     wnck_pager_set_orientation($!wp, $o);
   }
 
   method set_shadow_type (Int() $shadow_type) is also<set-shadow-type> {
-    my guint $st = resolve-uint($shadow_type);
+    my guint $st = $shadow_type;
+
     wnck_pager_set_shadow_type($!wp, $st);
   }
 
   method set_show_all (Int() $show_all_workspaces) is also<set-show-all> {
-    my gboolean $saw = resolve-bool($show_all_workspaces);
+    my gboolean $saw = $show_all_workspaces.so.Int;
+
     wnck_pager_set_show_all($!wp, $saw);
   }
 

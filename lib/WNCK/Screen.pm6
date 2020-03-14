@@ -2,14 +2,11 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
 use WNCK::Raw::Types;
-
-use GTK::Raw::Utils;
-
 use WNCK::Raw::Screen;
 
 use GLib::GList;
+use GDK::Pixbuf;
 
 use WNCK::Window;
 use WNCK::Workspace;
@@ -42,12 +39,16 @@ class WNCK::Screen {
       default
     >
   {
-    self.bless( screen => wnck_screen_get_default() );
+    my $screen = wnck_screen_get_default();
+
+    $screen ?? self.bless( :$screen ) !! WnckScreen;
   }
 
-  method get (Int $index) {
-    my gint $i = resolve-int($index);
-    self.bless( screen => wnck_screen_get($i) );
+  method get (Int() $index) {
+    my gint $i = $index;
+    my $screen = wnck_screen_get($i);
+
+    $screen ?? self.bless( :$screen ) !! WnckScreen;
   }
 
   method get_for_root (Int() $root_id)
@@ -57,8 +58,10 @@ class WNCK::Screen {
       new-for-root
     >
   {
-    my gulong $r = resolve-ulong($root_id);
-    self.bless( screen => wnck_screen_get_for_root($r) );
+    my gulong $r = $root_id;
+    my $screen = wnck_screen_get_for_root($r);
+
+    $screen ?? self.bless( :$screen ) !! WnckScreen;
   }
 
   # method calc_workspace_layout (
@@ -66,7 +69,7 @@ class WNCK::Screen {
   #   Int() $space_index,
   #   WnckWorkspaceLayout $layout
   # ) {
-  #   my gint ($nw, $si) = resolve-int($num_workspaces, $space_index);
+  #   my gint ($nw, $si) = $num_workspaces, $space_index;
   #   wnck_screen_calc_workspace_layout($!ws, $nw, $si, $layout);
   # }
 
@@ -163,7 +166,8 @@ class WNCK::Screen {
   method change_workspace_count (Int() $count)
     is also<change-workspace-count>
   {
-    my gint $c = resolve-int($count);
+    my gint $c = $count;
+
     wnck_screen_change_workspace_count($!ws, $c);
   }
 
@@ -175,34 +179,49 @@ class WNCK::Screen {
   #   wnck_screen_free_workspace_layout($!ws);
   # }
 
-  method get_active_window
+  method get_active_window (:$raw = False)
     is also<
       get-active-window
       active_window
       active-window
     >
   {
-    WNCK::Window.new( wnck_screen_get_active_window($!ws) );
+    my $w = wnck_screen_get_active_window($!ws);
+
+    $w ??
+      ( $raw ?? $w !! WNCK::Window.new($w) )
+      !!
+      WnckWindow;
   }
 
-  method get_active_workspace
+  method get_active_workspace (:$raw = False)
     is also<
       get-active-workspace
       active_workspace
       active-workspace
     >
   {
-    WNCK::Workspace.new( wnck_screen_get_active_workspace($!ws) );
+    my $wSp = wnck_screen_get_active_workspace($!ws);
+
+    $wSp ??
+      ( $raw ?? $wSp !! WNCK::Workspace.new($wSp) )
+      !!
+      WnckWorkspace;
   }
 
-  method get_background_pixmap
+  method get_background_pixmap (:$raw = False)
     is also<
       get-background-pixmap
       background_pixmap
       background-pixmap
     >
   {
-    wnck_screen_get_background_pixmap($!ws);
+    my $p = wnck_screen_get_background_pixmap($!ws);
+
+    $p ??
+      ( $raw ?? $p !! GDK::Pixbuf($p) )
+      !!
+      GdkPixbuf;
   }
 
   method get_height
@@ -214,14 +233,19 @@ class WNCK::Screen {
     wnck_screen_get_height($!ws);
   }
 
-  method get_previously_active_window
+  method get_previously_active_window (:$raw = False)
     is also<
       get-previously-active-window
       previously_active_window
       previously-active-window
     >
   {
-    WNCK::Window.new( wnck_screen_get_previously_active_window($!ws) );
+    my $w = wnck_screen_get_previously_active_window($!ws);
+
+    $w ??
+      ( $raw ?? $w !! WNCK::Window.new($w) )
+      !!
+      WnckWindow;
   }
 
   method get_number
@@ -235,6 +259,7 @@ class WNCK::Screen {
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &wnck_screen_get_type, $n, $t );
   }
 
@@ -271,47 +296,60 @@ class WNCK::Screen {
     wnck_screen_get_width($!ws);
   }
 
-  method get_windows (:$raw = False)
+  method get_windows (:$glist = False, :$raw = False)
     is also<
       get-windows
       windows
     >
   {
-    my $l = GLib::GList.new( wnck_screen_get_windows($!ws) )
-       but GLib::Roles::ListData[WnckWindow];
-     $raw ??
-       $l.Array !! $l.Array.map({ WNCK::Window.new( cast(WnckWindow, $_) ) });
+    my $l = wnck_screen_get_windows($!ws);
+
+    return Nil unless $l;
+    return $l  if $glist;
+
+    $l = GLib::GList.new($l) but GLib::Roles::ListData[WnckWindow];
+    $raw ?? $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
   }
 
-  method get_windows_stacked (:$raw = False)
+  method get_windows_stacked (:$glist = False, :$raw = False)
     is also<
       get-windows-stacked
       windows_stacked
       windows-stacked
     >
   {
-    wnck_screen_get_windows_stacked($!ws);
-    my $l = GLib::GList.new( wnck_screen_get_windows($!ws) )
-      but GLib::Roles::ListData[WnckWindow];
-    $raw ??
-      $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
+    my $wl = wnck_screen_get_windows_stacked($!ws);
+
+    return Nil unless $wl;
+    return $wl if $glist;
+
+    $wl = GLib::GList.new($wl) but GLib::Roles::ListData[WnckWindow];
+    $raw ?? $wl.Array !! $wl.Array.map({ WNCK::Window.new($_) });
   }
 
-  method get_workspace (Int() $index) is also<get-workspace> {
-    my gint $i = resolve-int($index);
-    WNCK::Workspace.new( wnck_screen_get_workspace($!ws, $i) );
+  method get_workspace (Int() $index, :$raw = False) is also<get-workspace> {
+    my gint $i = $index;
+    my $wSp = wnck_screen_get_workspace($!ws, $i);
+
+    $wSp ??
+      ( $raw ?? $wSp !! WNCK::Workspace.new($wSp) )
+      !!
+      WnckWorkspace;
   }
 
-  method get_workspaces (:$raw = False)
+  method get_workspaces (:$glist = False, :$raw = False)
     is also<
       get-workspaces
       workspaces
     >
   {
-    my $l = GLib::GList.new( wnck_screen_get_workspaces($!ws) )
-      but GTK::Compat::ListData[WnckWorkspace];
-    $raw ??
-      $l.Array !! $l.Array.map({ WNCK::Workspace.new($_) });
+    my $wl = wnck_screen_get_workspaces($!ws);
+
+    return Nil unless $wl;
+    return $wl if $glist;
+
+    $wl = GLib::GList.new($wl) but GLib::Roles::ListData[WnckWorkspace];
+    $raw ?? $wl.Array !! $wl.Array.map({ WNCK::Workspace.new($_) });
   }
 
   method get_workspace_count
@@ -325,21 +363,24 @@ class WNCK::Screen {
   }
 
   method move_viewport (Int() $x, Int() $y) is also<move-viewport> {
-    my gint ($xx, $yy) = resolve-int($x, $y);
+    my gint ($xx, $yy) = $x, $y;
+
     wnck_screen_move_viewport($!ws, $xx, $yy);
   }
 
   method release_workspace_layout (Int() $current_token)
     is also<release-workspace-layout>
   {
-    my gint $ct = resolve-int($current_token);
+    my gint $ct = $current_token;
+
     wnck_screen_release_workspace_layout($!ws, $ct);
   }
 
   method toggle_showing_desktop (Int() $show)
     is also<toggle-showing-desktop>
   {
-    my gboolean $s = resolve-bool($show);
+    my gboolean $s = $show.so.Int;
+
     wnck_screen_toggle_showing_desktop($!ws, $s);
   }
 
@@ -350,7 +391,8 @@ class WNCK::Screen {
   )
     is also<try-set-workspace-layout>
   {
-    my gint ($ct, $r, $c) = resolve-int($current_token, $rows, $columns);
+    my gint ($ct, $r, $c) = ($current_token, $rows, $columns);
+
     wnck_screen_try_set_workspace_layout($!ws, $ct, $r, $c);
   }
 

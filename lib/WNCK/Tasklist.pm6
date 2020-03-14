@@ -2,12 +2,7 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
 use WNCK::Raw::Types;
-
-use GTK::Raw::Utils;
-
 use WNCK::Raw::Tasklist;
 
 use GLib::Value;
@@ -28,6 +23,7 @@ class WNCK::Tasklist is GTK::Container {
             $to-parent = cast(GtkContainer, $_);
             $_;
           }
+
           default {
             $to-parent = $_;
             cast(WnckTasklist, $_);
@@ -43,16 +39,20 @@ class WNCK::Tasklist is GTK::Container {
   { $!wt }
 
   method new {
-    self.bless( tasklist => wnck_tasklist_new() );
+    my $tasklist = wnck_tasklist_new();
+
+    $tasklist ?? self.bless(:$tasklist) !! WnckTasklist;
   }
 
   method scroll_enabled is rw is also<scroll-enabled> {
     Proxy.new(
       FETCH => sub ($) {
-        wnck_tasklist_get_scroll_enabled($!wt);
+        so wnck_tasklist_get_scroll_enabled($!wt);
       },
-      STORE => sub ($, $scroll_enabled is copy) {
-        wnck_tasklist_set_scroll_enabled($!wt, $scroll_enabled);
+      STORE => sub ($, Int() $scroll_enabled is copy) {
+        my gboolean $s = $scroll_enabled.so.Int;
+
+        wnck_tasklist_set_scroll_enabled($!wt, $s);
       }
     );
   }
@@ -121,27 +121,33 @@ class WNCK::Tasklist is GTK::Container {
     );
   }
 
-  method get_size_hint_list (int $n_elements) is also<get-size-hint-list> {
-    wnck_tasklist_get_size_hint_list($!wt, $n_elements);
+  method get_size_hint_list (Int() $n_elements) is also<get-size-hint-list> {
+    my gint $n = $n_elements;
+
+    wnck_tasklist_get_size_hint_list($!wt, $n);
   }
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &wnck_tasklist_get_type, $n, $t );
   }
 
   method set_button_relief (Int() $relief) is also<set-button-relief> {
-    my guint $r = resolve-uint($relief);
+    my guint $r = $relief;
+
     wnck_tasklist_set_button_relief($!wt, $r);
   }
 
   method set_grouping (Int() $grouping) is also<set-grouping> {
-    my guint $g = resolve-uint($grouping);
+    my guint $g = $grouping;
+
     wnck_tasklist_set_grouping($!wt, $g);
   }
 
   method set_grouping_limit (Int() $limit) is also<set-grouping-limit> {
-    my gint $l = resolve-int($limit);
+    my gint $l = $limit;
+
     wnck_tasklist_set_grouping_limit($!wt, $l);
   }
 
@@ -163,19 +169,22 @@ class WNCK::Tasklist is GTK::Container {
   method set_include_all_workspaces (Int() $include_all_workspaces)
     is also<set-include-all-workspaces>
   {
-    my gboolean $iaw = resolve-bool($include_all_workspaces);
+    my gboolean $iaw = $include_all_workspaces.so.Int;
+
     wnck_tasklist_set_include_all_workspaces($!wt, $iaw);
   }
 
   method set_middle_click_close (Int() $middle_click_close)
     is also<set-middle-click-close>
   {
-    my gboolean $m = resolve-bool($middle_click_close);
+    my gboolean $m = $middle_click_close.so.Int;
+
     wnck_tasklist_set_middle_click_close($!wt, $m);
   }
 
   method set_orientation (Int() $orient) is also<set-orientation> {
-    my guint $o = resolve-uint($orient);
+    my guint $o = $orient;
+
     wnck_tasklist_set_orientation($!wt, $o);
   }
 
@@ -184,7 +193,8 @@ class WNCK::Tasklist is GTK::Container {
   )
     is also<set-switch-workspace-on-unminimize>
   {
-    my gboolean $swou = resolve-bool($switch_workspace_on_unminimize);
+    my gboolean $swou = $switch_workspace_on_unminimize.so.Int;
+
     wnck_tasklist_set_switch_workspace_on_unminimize($!wt, $swou);
   }
 

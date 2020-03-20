@@ -1,12 +1,9 @@
 #!/usr/bin/env perl6
 use v6.c;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
 use GLib::Timeout;
-
 use GLib::Source;
 use GTK::Application;
 use GTK::Label;
@@ -21,8 +18,10 @@ sub set-urgent ($w, $u) {
 sub make-urgent ($w) {
   set-urgent($w, True);
   $w.clear_data('wnck-timeout');
-  0;
+  G_SOURCE_REMOVE;
 }
+
+my $set = False;
 
 sub MAIN {
   my $app = GTK::Application.new( title => 'org.genex.wnck.urgency' );
@@ -39,19 +38,24 @@ sub MAIN {
     $app.window.focus-in-event.tap(-> *@a --> gboolean {
       CATCH { default { .message.say } }
       set-urgent($app.window, False);
-      my $id = $app.window.get_data_uint('wnck-timeout');
-      GLib::Source.remove($id) if $id.defined;
+      if $set {
+        my $id = $app.window.prop_get_uint('wnck-timeout');
+        GLib::Source.remove($id) if $id.defined;
+      }
       @a[*-1].r = 0;
     });
 
     $app.window.focus-out-event.tap(-> *@a --> gboolean {
       CATCH { default { .message.say } }
-      my $id = GLib::Timeout.add_seconds(3, -> *@a --> gboolean {
+
+      # Not a signal handler, so no .r!
+      my $id = GLib::Timeout.add_seconds(3, -> *@b --> gboolean {
         CATCH { default { .message.say } }
-        make-urgent($app.window)
+        make-urgent($app.window);
       });
-      $app.window.set_data_uint('wnck-timeout', $id);
-      @a[*-1].r = 0;
+
+      $app.window.prop_set_uint('wnck-timeout', $id);
+      @a[* - 1].r = 0;
     });
 
     set-urgent($app.window, False);

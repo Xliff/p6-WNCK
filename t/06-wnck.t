@@ -1,11 +1,9 @@
 use v6.c;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
-use GTK::Compat::Threads;
-use GTK::Compat::Value;
+use GLib::Value;
+use GDK::Threads;
 
 use GTK::Application;
 use GTK::Get;
@@ -120,6 +118,7 @@ Window '{ $win.get-name }' opened (pid = { $win.get-pid }, { ''
 }role = { $r ?? $r !! 'none' })
 WO
 
+  # Run the proper event handler for the listed events.
   $win."$_"().tap(-> *@b { ::( "\&window-$_" )( |@b ); })
     for <
       name-changed
@@ -244,7 +243,7 @@ sub update_window ($w) {
 sub get_window ($iter) {
   my $gv = %globals<tree-model>.get_value($iter, 0);
   my $window = WNCK::Window.new( cast(WnckWindow, $gv.object) );
-  $window.unref if $window.defined;
+  $window.unref if $window;
   $window;
 }
 
@@ -322,7 +321,7 @@ sub minimized_set_func ($tv, $c, $m, $i, $d) {
   CATCH { default { .message.say } }
 
   my $w = get_window($i);
-  return unless $w.defined;
+  return unless $w;
 
   GTK::CellRendererToggle.new($c).active = $w.is_minimized;
 }
@@ -330,7 +329,7 @@ sub minimized_set_func ($tv, $c, $m, $i, $d) {
 sub minimized_toggled_callback ($c, $p, $d) {
   my $i = %globals<tree-model>.get_iter( GTK::TreePath.new_from_string($p) );
   my $w = get_window($i);
-  $w.is_minimized ?? $w.unminimized !! $w.minimize;
+  $w.is_minimized ?? $w.unminimize !! $w.minimize;
 }
 
 sub maximized_set_func ($tv, $c, $m, $i, $d) {
@@ -345,7 +344,7 @@ sub maximized_set_func ($tv, $c, $m, $i, $d) {
 sub maximized_toggled_callback ($c, $p, $d) {
   my $i = %globals<tree-model>.get_iter( GTK::TreePath.new_from_string($p) );
   my $w = get_window($i);
-  $w.is_maximized ?? $w.unmaximize !! $w.minimize;
+  $w.is_maximized ?? $w.unmaximize !! $w.maximize;
 }
 
 sub session_id_set_func ($tv, $c, $m, $i, $d) {
@@ -396,7 +395,7 @@ sub create_tree_view {
     [ 'Session ID', GTK::CellRendererText.new,   &session_id_set_func,  Nil ]
   ) {
     %globals<tree-view>.append_column_with_data_func( |$_[^3] );
-    .[1].toggled.tap(-> *@a { .[3]( |@a ) }) if .[3].defined;
+    .[1].toggled.tap(-> *@a { .[3]( |@a ) }) if .[3];
   }
 
   my $sel = %globals<tree-view>.get-selection;
@@ -415,7 +414,7 @@ sub queue_refill_model {
   CATCH { default { .message.say } }
   return if %globals<refill-idle>;
   %globals<tree-model>.clear;
-  %globals<refill-idle> = GTK::Compat::Threads.add_idle(
+  %globals<refill-idle> = GDK::Threads.add_idle(
     -> $ --> guint32 { do_refill_model }
   );
 }

@@ -3,14 +3,11 @@ use v6.c;
 
 use Cairo;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
-use GTK::Compat::Screen;
+use GDK::Screen;
 use GTK::Application;
 use GTK::Frame;
-
 use WNCK::Screen;
 use WNCK::Tasklist;
 
@@ -64,9 +61,8 @@ sub MAIN (
     $tasklist.set_orientation($vertical ?? GTK_ORIENTATION_VERTICAL !!
                                            GTK_ORIENTATION_HORIZONTAL);
     if $transparent {
-      my $visual = GTK::Compat::Screen.get_rgba_visual($app.window.get_screen);
-      if $visual.defined {
-        $app.window.visual = $visual;
+      if GDK::Screen.get_rgba_visual($app.window.get_screen) -> $v {
+        $app.window.visual = $v;
 
         $app.window.composited-changed.tap({ window_compisited_changed });
         $app.window.draw.tap(-> *@a { window_draw(@a[1]) });

@@ -1,10 +1,10 @@
 #!/usr/bin/env perl6
 use v6.c;
 
-use GTK::Compat::Types;
+use GLib::Raw::Types;
+
 use GLib::MainLoop;
 use GLib::Timeout;
-
 use GTK::Application;
 use WNCK::Screen;
 use WNCK::Utils;

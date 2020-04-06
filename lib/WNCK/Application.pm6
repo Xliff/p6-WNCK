@@ -2,26 +2,20 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
 use WNCK::Raw::Types;
-
-use GTK::Raw::Utils;
-
 use WNCK::Raw::Application;
 
 use GLib::GList;
-use GTK::Compat::Pixbuf;
-
+use GDK::Pixbuf;
 use WNCK::Window;
 
 use GLib::Roles::ListData;
 use GLib::Roles::Object;
-
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WNCK::Application {
   also does GLib::Roles::Object;
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WnckApplication $!wa;
 
@@ -34,11 +28,13 @@ class WNCK::Application {
   { $!wa; }
 
   method new (WnckApplication $application) {
-    self.bless( :$application );
+    $application ?? self.bless( :$application ) !! WnckApplication;
   }
 
   method get (WNCK::Application:U: Int() $xid) {
-    self.bless( application => wnck_application_get($xid) )
+    my $application = wnck_application_get($xid);
+
+    $application ?? self.bless( :$application ) !! WnckApplication;
   }
 
   method icon-changed is also<icon_changed> {
@@ -49,13 +45,18 @@ class WNCK::Application {
     self.connect($!wa, 'name-changed');
   }
 
-  method get_icon
+  method get_icon (:$raw = False)
     is also<
       get-icon
       icon
     >
   {
-    GTK::Compat::Pixbuf.new( wnck_application_get_icon($!wa) );
+    my $p = wnck_application_get_icon($!wa);
+
+    $p ??
+      ( $raw ?? $p !! GDK::Pixbuf.new($p) )
+      !!
+      GdkPixbuf;
   }
 
   method get_icon_is_fallback
@@ -99,19 +100,23 @@ class WNCK::Application {
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &wnck_application_get_type, $n, $t );
   }
 
-  method get_windows (:$raw = False)
+  method get_windows (:$glist = False, :$raw = False)
     is also<
       get-windows
       windows
     >
   {
-    my $l = GLib::GList.new( wnck_application_get_windows($!wa) )
-      but GLib::Roles::ListData[WnckWindow];
-    $raw ??
-      $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
+    my $l = wnck_application_get_windows($!wa);
+
+    return Nil unless $l;
+    return $l  if $glist;
+
+    $l = GLib::GList.new($l) but GLib::Roles::ListData[WnckWindow];
+    $raw ?? $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
   }
 
   method get_xid
@@ -123,14 +128,19 @@ class WNCK::Application {
     wnck_application_get_xid($!wa);
   }
 
-  method get_mini_icon
+  method get_mini_icon (:$raw = False)
     is also<
       get-mini-icon
       mini_icon
       mini-icon
     >
   {
-    GTK::Compat::Pixbuf.new( wnck_application_get_mini_icon($!wa) );
+    my $p = wnck_application_get_mini_icon($!wa);
+
+    $p ??
+      ( $raw ?? $p !! GTK::Compat::Pixbuf.new($p) )
+      !!
+      GdkPixbuf
   }
 
   method get_pid

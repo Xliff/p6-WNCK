@@ -2,7 +2,6 @@ use v6.c;
 
 use NativeCall;
 
-use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
 use GTK::Application;
@@ -10,7 +9,7 @@ use GTK::Application;
 use WNCK::Pager;
 use WNCK::Screen;
 
-sub setup_pager_window ($win, $o, $sa, $pm, $r, $w) {
+sub setup_pager ($win, $o, $sa, $pm, $r, $w) {
   $win.stick;
   $win.title = 'Pager';
   $win.move(0, 0);
@@ -49,9 +48,7 @@ sub MAIN (
       GTK_ORIENTATION_VERTICAL !! GTK_ORIENTATION_HORIZONTAL;
     my $sn = $show-name.so ??
       WNCK_PAGER_DISPLAY_NAME !! WNCK_PAGER_DISPLAY_CONTENT;
-    setup_pager_window(
-      $app.window, $o, $show-all.so, $sn, $rows, $wrap-on-scroll.so
-    );
+    setup_pager($app.window, $o, $show-all.so, $sn, $rows, $wrap-on-scroll.so);
   });
 
   $app.run;

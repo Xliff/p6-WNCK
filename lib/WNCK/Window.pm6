@@ -2,23 +2,18 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
 use WNCK::Raw::Types;
-
-use GTK::Raw::Utils;
-
 use WNCK::Raw::Window;
 
-use GTK::Compat::Pixbuf;
-
+use GDK::Pixbuf;
 use GTK::Get;
 
 use GLib::Roles::Object;
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WNCK::Window {
   also does GLib::Roles::Object;
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WnckWindow $!ww;
 
@@ -31,16 +26,20 @@ class WNCK::Window {
   { $!ww }
 
   method new (WnckWindow $window) {
-    self.bless(:$window);
+    $window ?? self.bless(:$window) !! WnckWindow;
   }
 
   method get (Int() $xid) {
-    my gulong $x = resolve-ulong($xid);
-    self.bless( window => wnck_window_get($x) );
+    my gulong $x = $xid;
+    my $window = wnck_window_get($x);
+
+    $window ?? self.bless(:$window) !! WnckWindow;
   }
 
   method get_transient (WnckWindow() $w) is also<get-transient> {
-    self.bless( window => wnck_window_get_transient($w) );
+    my $window = wnck_window_get_transient($w);
+
+    $window ?? self.bless(:$window) !! WnckWindow;
   }
 
   # Is originally:
@@ -98,19 +97,22 @@ class WNCK::Window {
   }
 
   method activate (Int() $timestamp = GTK::Get.current_event_time) {
-    my guint $ts = resolve-uint($timestamp);
+    my guint $ts = $timestamp;
+
     wnck_window_activate($!ww, $ts);
   }
 
   method activate_transient (Int() $timestamp = GTK::Get.current_event_time)
     is also<activate-transient>
   {
-    my guint $ts = resolve-uint($timestamp);
+    my guint $ts = $timestamp;
+
     wnck_window_activate_transient($!ww, $ts);
   }
 
   method close (Int() $timestamp = GTK::Get.current_event_time) {
-    my guint $ts = resolve-uint($timestamp);
+    my guint $ts = $timestamp;
+
     wnck_window_close($!ww, $timestamp);
   }
 
@@ -120,28 +122,36 @@ class WNCK::Window {
       actions
     >
   {
-    #WnckWindowActions(
-      wnck_window_get_actions($!ww)
-    #);
+    WnckWindowActionsEnum( wnck_window_get_actions($!ww) )
   }
 
-  method get_application
+  method get_application (:$raw = False)
     is also<
       get-application
       application
     >
   {
-    ::('WNCK::Application').new( wnck_window_get_application($!ww) );
+    my $a = wnck_window_get_application($!ww);
+
+    $a ??
+      ( $raw ?? $a !! ::('WNCK::Application').new($a) )
+      !!
+      WnckApplication;
   }
 
-  method get_class_group
+  method get_class_group (:$raw = False)
     is also<
       get-class-group
       class_group
       class-group
     >
   {
-    ::('WNCK::ClassGroup').new( wnck_window_get_class_group($!ww) );
+    my $cg = wnck_window_get_class_group($!ww);
+
+    $cg ??
+      ( $raw ?? $cg !! ::('WNCK::ClassGroup').new($cg) )
+      !!
+      WnckClassGroup;
   }
 
   method get_class_group_name
@@ -165,6 +175,7 @@ class WNCK::Window {
     >
   {
     my ($xp, $yp, $widthp, $heightp) = 0 xx 4;
+
     samewith($xp, $yp, $widthp, $heightp);
   }
   multi method get_client_window_geometry (
@@ -173,7 +184,8 @@ class WNCK::Window {
     Int() $widthp  is rw,
     Int() $heightp is rw
   ) {
-    my gint ($xx, $yy, $w, $h) = resolve-int($xp, $yp, $widthp, $heightp);
+    my gint ($xx, $yy, $w, $h) = ($xp, $yp, $widthp, $heightp);
+
     wnck_window_get_client_window_geometry($!ww, $xx, $yy, $w, $h);
     ($xp, $yp, $widthp, $heightp) = ($xx, $yy, $w, $h);
   }
@@ -187,6 +199,7 @@ class WNCK::Window {
 
   multi method get_geometry {
     my ($xp, $yp, $widthp, $heightp) = 0 xx 4;
+
     samewith($xp, $yp, $widthp, $heightp);
   }
   multi method get_geometry (
@@ -195,18 +208,24 @@ class WNCK::Window {
     Int() $widthp  is rw,
     Int() $heightp is rw
   ) {
-    my gint ($xx, $yy, $w, $h) = resolve-int($xp, $yp, $widthp, $heightp);
+    my gint ($xx, $yy, $w, $h) = ($xp, $yp, $widthp, $heightp);
+
     wnck_window_get_geometry($!ww, $xx, $yy, $w, $h);
     ($xp, $yp, $widthp, $heightp) = ($xx, $yy, $w, $h);
   }
 
-  method get_icon
+  method get_icon (:$raw = False)
     is also<
       get-icon
       icon
     >
   {
-    GTK::Compat::Pixbuf.new( wnck_window_get_icon($!ww) );
+    my $p = wnck_window_get_icon($!ww);
+
+    $p ??
+      ( $raw ?? $p !! GDK::Pixbuf.new($p) )
+      !!
+      GdkPixbuf;
   }
 
   method get_icon_is_fallback
@@ -237,13 +256,13 @@ class WNCK::Window {
     wnck_window_get_role($!ww);
   }
 
-  method get_screen
+  method get_screen (:$raw = False)
     is also<
       get-screen
       screen
     >
   {
-    ::('WNCK::Screen').wnck_window_get_screen($!ww);
+    ::('WNCK::Screen').wnck_window_get_screen($!ww, :$raw);
   }
 
   method get_session_id
@@ -272,11 +291,12 @@ class WNCK::Window {
       state
     >
   {
-    WnckWindowState( wnck_window_get_state($!ww) );
+    WnckWindowStateEnum( wnck_window_get_state($!ww) );
   }
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &wnck_window_get_type, $n, $t );
   }
 
@@ -287,18 +307,21 @@ class WNCK::Window {
       window-type
     >
   {
-    #WnckWindowType(
-      wnck_window_get_window_type($!ww)
-    #);
+    WnckWindowTypeEnum( wnck_window_get_window_type($!ww) );
   }
 
-  method get_workspace
+  method get_workspace (:$raw = False)
     is also<
       get-workspace
       workspace
     >
   {
-    ::('WNCK::Workspace').new( wnck_window_get_workspace($!ww) );
+    my $w = wnck_window_get_workspace($!ww);
+
+    $w ??
+      ( $raw ?? $w !! ::('WNCK::Workspace').new($w) )
+      !!
+      Nil;
   }
 
   method get_xid
@@ -311,59 +334,59 @@ class WNCK::Window {
   }
 
   method has_icon_name is also<has-icon-name> {
-    wnck_window_has_icon_name($!ww);
+    so wnck_window_has_icon_name($!ww);
   }
 
   method has_name is also<has-name> {
-    wnck_window_has_name($!ww);
+    so wnck_window_has_name($!ww);
   }
 
   method is_above is also<is-above> {
-    wnck_window_is_above($!ww);
+    so wnck_window_is_above($!ww);
   }
 
   method is_active is also<is-active> {
-    wnck_window_is_active($!ww);
+    so wnck_window_is_active($!ww);
   }
 
   method is_fullscreen is also<is-fullscreen> {
-    wnck_window_is_fullscreen($!ww);
+    so wnck_window_is_fullscreen($!ww);
   }
 
   method is_in_viewport (WnckWorkspace() $workspace) is also<is-in-viewport> {
-    wnck_window_is_in_viewport($!ww, $workspace);
+    so wnck_window_is_in_viewport($!ww, $workspace);
   }
 
   method is_maximized is also<is-maximized> {
-    wnck_window_is_maximized($!ww);
+    so wnck_window_is_maximized($!ww);
   }
 
   method is_maximized_horizontally is also<is-maximized-horizontally> {
-    wnck_window_is_maximized_horizontally($!ww);
+    so wnck_window_is_maximized_horizontally($!ww);
   }
 
   method is_minimized is also<is-minimized> {
-    wnck_window_is_minimized($!ww);
+    so wnck_window_is_minimized($!ww);
   }
 
   method is_on_workspace (WnckWorkspace() $workspace)
     is also<is-on-workspace>
   {
-    wnck_window_is_on_workspace($!ww, $workspace);
+    so wnck_window_is_on_workspace($!ww, $workspace);
   }
 
   method is_pinned is also<is-pinned> {
-    wnck_window_is_pinned($!ww);
+    so wnck_window_is_pinned($!ww);
   }
 
   method is_skip_pager is also<is-skip-pager> {
-    wnck_window_is_skip_pager($!ww);
+    so wnck_window_is_skip_pager($!ww);
   }
 
   method is_visible_on_workspace (WnckWorkspace() $workspace)
     is also<is-visible-on-workspace>
   {
-    wnck_window_is_visible_on_workspace($!ww, $workspace);
+    so wnck_window_is_visible_on_workspace($!ww, $workspace);
   }
 
   method keyboard_move is also<keyboard-move> {
@@ -409,7 +432,8 @@ class WNCK::Window {
   }
 
   method set_fullscreen (Int() $fullscreen) is also<set-fullscreen> {
-    my gboolean $fs = resolve-bool($fullscreen);
+    my gboolean $fs = $fullscreen.so.Int;
+
     wnck_window_set_fullscreen($!ww, $fs);
   }
 
@@ -423,35 +447,41 @@ class WNCK::Window {
   )
     is also<set-geometry>
   {
-    my guint ($g, $gm) = resolve-uint($gravity, $geometry_mask);
-    my gint ($xx, $yy, $w, $h) = resolve-int($x, $y, $width, $height);
+    my guint ($g, $gm) = ($gravity, $geometry_mask);
+    my gint ($xx, $yy, $w, $h) = ($x, $y, $width, $height);
+
     wnck_window_set_geometry($!ww, $g, $gm, $xx, $yy, $w, $h);
   }
 
   method set_icon_geometry (Int() $x, Int() $y, Int() $width, Int() $height)
     is also<set-icon-geometry>
   {
-    my gint ($xx, $yy, $w, $h) = resolve-int($x, $y, $width, $height);
+    my gint ($xx, $yy, $w, $h) = ($x, $y, $width, $height);
+
     wnck_window_set_icon_geometry($!ww, $xx, $yy, $w, $h);
   }
 
   method set_skip_pager (Int() $skip) is also<set-skip-pager> {
-    my gboolean $s = resolve-bool($skip);
+    my gboolean $s = $skip.so.Int;
+
     wnck_window_set_skip_pager($!ww, $s);
   }
 
   method set_skip_tasklist (Int() $skip) is also<set-skip-tasklist> {
-    my gboolean $s = resolve-bool($skip);
+    my gboolean $s = $skip.so.Int;
+
     wnck_window_set_skip_tasklist($!ww, $s);
   }
 
   method set_sort_order (Int() $order) is also<set-sort-order> {
-    my gint $o = resolve-int($order);
+    my gint $o = $order;
+
     wnck_window_set_sort_order($!ww, $o);
   }
 
   method set_window_type (Int() $wintype) is also<set-window-type> {
-    my guint $wt = resolve-uint($wintype);
+    my guint $wt = $wintype;
+
     wnck_window_set_window_type($!ww, $wt);
   }
 
@@ -493,14 +523,19 @@ class WNCK::Window {
     wnck_window_get_icon_name($!ww);
   }
 
-  method get_mini_icon
+  method get_mini_icon (:$raw = False)
     is also<
       get-mini-icon
       mini_icon
       mini-icon
     >
   {
-    GTK::Compat::Pixbuf.new( wnck_window_get_mini_icon($!ww) );
+    my $p = wnck_window_get_mini_icon($!ww);
+
+    $p ??
+      ( $raw ?? $p !! GDK::Pixbuf.new($p) )
+      !!
+      GdkPixbuf
   }
 
   method get_name
@@ -567,7 +602,8 @@ class WNCK::Window {
   }
 
   method unminimize (Int() $timestamp = GTK::Get.current_event_time) {
-    my guint $ts = resolve-uint($timestamp);
+    my guint $ts = $timestamp;
+
     wnck_window_unminimize($!ww, $ts);
   }
 

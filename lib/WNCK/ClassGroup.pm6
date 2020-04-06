@@ -2,20 +2,18 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
 use WNCK::Raw::Types;
-
 use WNCK::Raw::ClassGroup;
 
 use GLib::Roles::Object;
 
 use WNCK::Window;
 
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WNCK::ClassGroup {
   also does GLib::Roles::Object;
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WnckClassGroup $!wcg;
 
@@ -23,8 +21,14 @@ class WNCK::ClassGroup {
     self!setObject( cast(GObject, $!wcg = $group) );
   }
 
+  method new (Str() $id) {
+    self.get($id);
+  }
+
   method get (Str() $id) {
-    self.bless( group => wnck_class_group_get($id) );
+    my $group = wnck_class_group_get($id);
+
+    $group ?? self.bless(:$group) !! WnckClassGroup;
   }
 
   method icon-changed {
@@ -35,13 +39,18 @@ class WNCK::ClassGroup {
     self.connect($!wcg, 'name-changed');
   }
 
-  method get_icon
+  method get_icon (:$raw = False)
     is also<
       get-icon
       icon
     >
   {
-    GTK::Compat::Pixbuf.new( wnck_class_group_get_icon($!wcg) );
+    my $p = wnck_class_group_get_icon($!wcg);
+
+    $p ??
+      ( $raw ?? $p !! GDK::Pixbuf.new($p) )
+      !!
+      GdkPixbuf;
   }
 
   method get_id
@@ -74,29 +83,38 @@ class WNCK::ClassGroup {
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &wnck_class_group_get_type, $n, $t );
   }
 
-  method get_windows (:$raw = False)
+  method get_windows (:$glist = False, :$raw = False)
     is also<
       get-windows
       windows
     >
   {
-    my $l = GLib::GList.new( wnck_class_group_get_windows($!wcg) )
-      but GLib::Roles::ListData[WnckWindow];
-    $raw ??
-      $l.Array !! $l.Array.map({ WNCK::Window.new($_) });
+    my $wl = wnck_class_group_get_windows($!wcg);
+
+    return Nil unless $wl;
+    return $wl if $glist;
+
+    $wl = GLib::GList.new($wl) but GLib::Roles::ListData[WnckWindow];
+    $raw ?? $wl.Array !! $wl.Array.map({ WNCK::Window.new($_) });
   }
 
-  method get_mini_icon
+  method get_mini_icon (:$raw = False)
     is also<
       get-mini-icon
       mini_icon
       mini-icon
     >
   {
-    GTK::Compat::Pixbuf.new( wnck_class_group_get_icon($!wcg) );
+    my $p = wnck_class_group_get_icon($!wcg);
+
+    $p ??
+      ( $raw ?? $p !! GTK::Compat::Pixbuf.new($p) )
+      !!
+      GdkPixbuf;
   }
 
 }

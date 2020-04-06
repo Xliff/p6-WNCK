@@ -16,13 +16,11 @@ sub MAIN {
   $screen.application-opened.tap(-> *@b {
     CATCH { default { .message.say } }
 
-    GLib::Timeout.cancel($to) if $to.defined;
     for WNCK::Application.new( @b[1] ).windows {
       .shade unless .name.contains('Konsole');
     }
-    # If this signal hasn't been emitted for half a second, assume all
-    # applications have been processed, then quit. We only need to do
-    # this ONCE.
+    # Wait for half a second, then assume all applications have been processed,
+    # and quit.
     $to = GLib::Timeout.add(500, -> *@a { $loop.quit; 0 });
   });
 

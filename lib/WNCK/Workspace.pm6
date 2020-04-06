@@ -2,19 +2,15 @@ use v6.c;
 
 use Method::Also;
 
-use GTK::Compat::Types;
 use WNCK::Raw::Types;
-
-use GTK::Raw::Utils;
-
 use WNCK::Raw::Workspace;
 
 use GLib::Roles::Object;
-use GTK::Roles::Signals::Generic;
+use GLib::Roles::Signals::Generic;
 
 class WNCK::Workspace {
   also does GLib::Roles::Object;
-  also does GTK::Roles::Signals::Generic;
+  also does GLib::Roles::Signals::Generic;
 
   has WnckWorkspace $!wws;
 
@@ -34,14 +30,19 @@ class WNCK::Workspace {
     self.connect($!wws, 'name-changed');
   }
 
-  method get_neighbor (Int() $direction)
+  method get_neighbor (Int() $direction, :$raw = False)
     is also<
       get-neighbor
       neighbor
     >
   {
-    my guint $d = resolve-uint($direction);
-    WNCK::Workspace.new( wnck_workspace_get_neighbor($!wws, $d) );
+    my guint $d = $direction;
+    my $w = wnck_workspace_get_neighbor($!wws, $d);
+
+    $w ??
+      ( $raw ?? $w !! WNCK::Workspace.new($w) )
+      !!
+      WnckWorkspace;
   }
 
   method get_layout_column
@@ -82,17 +83,23 @@ class WNCK::Workspace {
     wnck_workspace_get_number($!wws);
   }
 
-  method get_screen
+  method get_screen (:$raw = False)
     is also<
       get-screen
       screen
     >
   {
-    ::('WNCK::Screen').new( wnck_workspace_get_screen($!wws) );
+    my $ws = wnck_workspace_get_screen($!wws);
+
+    $ws ??
+      ( $raw ?? $ws !! ::('WNCK::Screen').new($ws) )
+      !!
+      WnckWorkspace;
   }
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &wnck_workspace_get_type, $n, $t );
   }
 
@@ -123,8 +130,9 @@ class WNCK::Workspace {
     wnck_workspace_change_name($!wws, $name)
   }
 
-  method activate (guint $timestamp) {
-    my guint $ts = resolve-uint($timestamp);
+  method activate (Int() $timestamp) {
+    my guint $ts = $timestamp;
+
     wnck_workspace_activate($!wws, $ts)
   }
 

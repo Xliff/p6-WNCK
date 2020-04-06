@@ -3,8 +3,6 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use GTK::Compat::Types;
-use GTK::Raw::Types;
 use WNCK::Raw::Types;
 
 use GTK::MenuBar;
@@ -24,6 +22,7 @@ class WNCK::Selector is GTK::MenuBar {
             $to-parent = cast(GtkMenuBar, $_);
             $_;
           }
+
           default {
             $to-parent = $_;
             cast(WnckSelector, $_);
@@ -31,8 +30,10 @@ class WNCK::Selector is GTK::MenuBar {
         }
         self.setMenuBar($to-parent);
       }
+
       when WNCK::Selector {
       }
+
       default {
       }
     }
@@ -43,14 +44,17 @@ class WNCK::Selector is GTK::MenuBar {
   { $!ws }
 
   multi method new (SelectorAncestry $selector) {
-    self.bless( :$selector );
+    $selector ?? self.bless( :$selector ) !! WnckSelector;
   }
   multi method new {
-    self.bless( selector => wnck_selector_new() );
+    my $selector = wnck_selector_new();
+
+    $selector ?? self.bless( :$selector ) !! WnckSelector;
   }
 
   method get_type is also<get-type> {
     state ($n, $t);
+
     unstable_get_type( self.^name, &wnck_selector_get_type, $n, $t );
   }
 

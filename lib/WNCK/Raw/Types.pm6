@@ -10,7 +10,7 @@ use GDK::Raw::Exports;
 use GTK::Raw::Exports;
 use WNCK::Raw::Exports;
 
-my constant forced = 3;
+my constant forced = 5;
 
 unit package WNCK::Raw::Types;
 

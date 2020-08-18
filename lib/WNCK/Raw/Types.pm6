@@ -2,7 +2,6 @@ use v6.c;
 
 use NativeCall;
 
-use CompUnit::Util :re-export;
 use GLib::Raw::Exports;
 use Pango::Raw::Exports;
 use GIO::Raw::Exports;
@@ -10,7 +9,7 @@ use GDK::Raw::Exports;
 use GTK::Raw::Exports;
 use WNCK::Raw::Exports;
 
-my constant forced = 7;
+my constant forced = 15;
 
 unit package WNCK::Raw::Types;
 
@@ -45,11 +44,10 @@ need WNCK::Raw::Enums;
 need WNCK::Raw::Structs;
 
 BEGIN {
-  re-export($_) for
-    |@glib-exports,
-    |@pango-exports,
-    |@gio-exports,
-    |@gdk-exports,
-    |@gtk-exports,
-    |@wnck-exports;
+  glib-re-export($_) for |@glib-exports,
+                         |@pango-exports,
+                         |@gio-exports,
+                         |@gdk-exports,
+                         |@gtk-exports,
+                         |@wnck-exports;
 }

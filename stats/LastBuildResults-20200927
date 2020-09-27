@@ -1,0 +1,1161 @@
+Dependency Generation
+=====================
+real 0.64
+user 0.93
+sys 0.05
+ === Cairo ===
+Stage start      :   0.000
+Stage parse      :   1.246
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GDK::Pixbuf ===
+Stage start      :   0.000
+Stage parse      :   1.868
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.001
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GDK::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.325
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GDK::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.281
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.006
+Stage mast       :   0.005
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GDK::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.138
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GDK::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.330
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GDK::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.326
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::DBus::Raw::Types ===
+Stage start      :   0.000
+Stage parse      :   1.487
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GIO::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.379
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.265
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.142
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GIO::Raw::Quarks ===
+Stage start      :   0.000
+Stage parse      :   1.406
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.468
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GIO::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.457
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::GList ===
+Stage start      :   0.000
+Stage parse      :   1.390
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.286
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.007
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.324
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.003
+Stage mast       :   0.006
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.192
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GLib::Raw::Object ===
+Stage start      :   0.000
+Stage parse      :   1.330
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Struct_Subs ===
+Stage start      :   0.000
+Stage parse      :   1.264
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GLib::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.342
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.315
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::ListData ===
+Stage start      :   0.000
+Stage parse      :   1.412
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::Object ===
+Stage start      :   0.000
+Stage parse      :   1.508
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::Roles::Pointers ===
+Stage start      :   0.000
+Stage parse      :   1.251
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::Signals::Generic ===
+Stage start      :   0.000
+Stage parse      :   1.450
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::StaticClass ===
+Stage start      :   0.000
+Stage parse      :   1.391
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Value ===
+Stage start      :   0.000
+Stage parse      :   1.401
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Container ===
+Stage start      :   0.000
+Stage parse      :   2.833
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.009
+Stage moar       :   0.000
+ === GTK::Get ===
+Stage start      :   0.000
+Stage parse      :   2.360
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.007
+Stage moar       :   0.000
+ === GTK::Menu ===
+Stage start      :   0.000
+Stage parse      :   3.162
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.010
+Stage moar       :   0.000
+ === GTK::MenuBar ===
+Stage start      :   0.000
+Stage parse      :   3.072
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.010
+Stage moar       :   0.000
+ === GTK::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.235
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.290
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.003
+Stage mast       :   0.006
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GTK::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.135
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Raw::Requisition ===
+Stage start      :   0.000
+Stage parse      :   1.484
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.477
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GTK::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.298
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GTK::Roles::Signals::Generic ===
+Stage start      :   0.000
+Stage parse      :   1.840
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GTK::Widget ===
+Stage start      :   0.000
+Stage parse      :   2.729
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.008
+Stage moar       :   0.000
+ === Method::Also ===
+Stage start      :   0.000
+Stage parse      :   1.141
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === NativeCall ===
+Stage start      :   0.000
+Stage parse      :   1.215
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === Pango::Raw::Definitions ===
+Stage start      :   0.000
+Stage parse      :   1.297
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === Pango::Raw::Enums ===
+Stage start      :   0.000
+Stage parse      :   1.295
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === Pango::Raw::Exports ===
+Stage start      :   0.000
+Stage parse      :   1.151
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === Pango::Raw::Structs ===
+Stage start      :   0.000
+Stage parse      :   1.456
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === Pango::Raw::Subs ===
+Stage start      :   0.000
+Stage parse      :   1.437
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::Definitions ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Definitions.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.334
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.001
+    Stage mast       :   0.036
+    Stage mbc        :   0.001
+Stage parse      :   2.638
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::Enums ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Enums.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.720
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.008
+    Stage mast       :   0.120
+    Stage mbc        :   0.007
+Stage parse      :   3.088
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.004
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::Structs ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Structs.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.335
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.002
+    Stage mast       :   0.035
+    Stage mbc        :   0.001
+Stage parse      :   2.575
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::Exports ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Exports.pm6
+    Stage start      :   0.000
+    Stage parse      :   0.110
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.001
+    Stage mast       :   0.003
+    Stage mbc        :   0.002
+Stage parse      :   1.295
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::Types ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Types.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.467
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.001
+    Stage mast       :   0.055
+    Stage mbc        :   0.004
+Stage parse      :   3.926
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.013
+Stage mast       :   0.025
+Stage mbc        :   0.016
+Stage moar       :   0.000
+ === WNCK::Raw::Utils ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Utils.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.298
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.071
+    Stage mbc        :   0.028
+Stage parse      :   3.779
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::Window ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Window.pm6
+    Stage start      :   0.000
+    Stage parse      :  11.506
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.055
+    Stage mast       :   0.225
+    Stage mbc        :   0.301
+Stage parse      :  13.571
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.004
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === WNCK::Raw::Workspace ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Workspace.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.392
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.022
+    Stage mast       :   0.083
+    Stage mbc        :   0.059
+Stage parse      :   4.942
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Roles::Signals::Screen ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Roles/Signals/Screen.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.698
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.021
+    Stage mast       :   0.098
+    Stage mbc        :   0.050
+Stage parse      :   5.281
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Selector ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Selector.pm6
+    Stage start      :   0.000
+    Stage parse      :   5.485
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.220
+    Stage mbc        :   0.047
+Adding alias in WNCK::Selector for WnckSelector...
+Stage parse      :   7.960
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WNCK::Selector for get-type...
+Roles: ()
+ === WNCK::Utils ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Utils.pm6
+    Stage start      :   0.000
+    Stage parse      :   1.460
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.062
+    Stage mbc        :   0.014
+Adding alias in WNCK::Utils for pid-read-resource-usage...
+Stage parse      :   2.900
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WNCK::Utils for set-client-type...
+Adding alias in WNCK::Utils for set-default-icon-size...
+Adding alias in WNCK::Utils for set-default-mini-icon-size...
+Adding alias in WNCK::Utils for xid-read-resource-usage...
+Roles: ((StaticClass))
+R: GLib::Roles::StaticClass
+ === WNCK::Window ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Window.pm6
+    Stage start      :   0.000
+    Stage parse      :   5.633
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.036
+    Stage mast       :   0.155
+    Stage mbc        :   0.081
+Adding alias in WNCK::Window for WnckWindow...
+Stage parse      :   7.637
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WNCK::Window for get-transient...
+Adding alias in WNCK::Window for actions_changed...
+Adding alias in WNCK::Window for class_changed...
+Adding alias in WNCK::Window for geometry_changed...
+Adding alias in WNCK::Window for icon_changed...
+Adding alias in WNCK::Window for name_changed...
+Adding alias in WNCK::Window for role_changed...
+Adding alias in WNCK::Window for state_changed...
+Adding alias in WNCK::Window for type_changed...
+Adding alias in WNCK::Window for workspace_changed...
+Adding alias in WNCK::Window for activate-transient...
+Adding alias in WNCK::Window for get-actions...
+Adding alias in WNCK::Window for actions...
+Adding alias in WNCK::Window for get-application...
+Adding alias in WNCK::Window for application...
+Adding alias in WNCK::Window for get-class-group...
+Adding alias in WNCK::Window for class_group...
+Adding alias in WNCK::Window for class-group...
+Adding alias in WNCK::Window for get-class-group-name...
+Adding alias in WNCK::Window for class_group_name...
+Adding alias in WNCK::Window for class-group-name...
+Adding alias in WNCK::Window for get-client-window-geometry...
+Adding alias in WNCK::Window for client_window_geometry...
+Adding alias in WNCK::Window for client-window-geometry...
+Adding alias in WNCK::Window for get-geometry...
+Adding alias in WNCK::Window for geometry...
+Adding alias in WNCK::Window for get-icon...
+Adding alias in WNCK::Window for icon...
+Adding alias in WNCK::Window for get-icon-is-fallback...
+Adding alias in WNCK::Window for icon_is_fallback...
+Adding alias in WNCK::Window for icon-is-fallback...
+Adding alias in WNCK::Window for get-pid...
+Adding alias in WNCK::Window for pid...
+Adding alias in WNCK::Window for get-role...
+Adding alias in WNCK::Window for role...
+Adding alias in WNCK::Window for get-screen...
+Adding alias in WNCK::Window for screen...
+Adding alias in WNCK::Window for get-session-id...
+Adding alias in WNCK::Window for session_id...
+Adding alias in WNCK::Window for session-id...
+Adding alias in WNCK::Window for get-session-id-utf8...
+Adding alias in WNCK::Window for session_id_utf8...
+Adding alias in WNCK::Window for session-id-utf8...
+Adding alias in WNCK::Window for get-state...
+Adding alias in WNCK::Window for state...
+Adding alias in WNCK::Window for get-type...
+Adding alias in WNCK::Window for get-window-type...
+Adding alias in WNCK::Window for window_type...
+Adding alias in WNCK::Window for window-type...
+Adding alias in WNCK::Window for get-workspace...
+Adding alias in WNCK::Window for workspace...
+Adding alias in WNCK::Window for get-xid...
+Adding alias in WNCK::Window for xid...
+Adding alias in WNCK::Window for has-icon-name...
+Adding alias in WNCK::Window for has-name...
+Adding alias in WNCK::Window for is-above...
+Adding alias in WNCK::Window for is-active...
+Adding alias in WNCK::Window for is-fullscreen...
+Adding alias in WNCK::Window for is-in-viewport...
+Adding alias in WNCK::Window for is-maximized...
+Adding alias in WNCK::Window for is-maximized-horizontally...
+Adding alias in WNCK::Window for is-minimized...
+Adding alias in WNCK::Window for is-on-workspace...
+Adding alias in WNCK::Window for is-pinned...
+Adding alias in WNCK::Window for is-skip-pager...
+Adding alias in WNCK::Window for is-visible-on-workspace...
+Adding alias in WNCK::Window for keyboard-move...
+Adding alias in WNCK::Window for make-above...
+Adding alias in WNCK::Window for make-below...
+Adding alias in WNCK::Window for maximize-horizontally...
+Adding alias in WNCK::Window for maximize-vertically...
+Adding alias in WNCK::Window for move-to-workspace...
+Adding alias in WNCK::Window for needs-attention...
+Adding alias in WNCK::Window for set-fullscreen...
+Adding alias in WNCK::Window for set-geometry...
+Adding alias in WNCK::Window for set-icon-geometry...
+Adding alias in WNCK::Window for set-skip-pager...
+Adding alias in WNCK::Window for set-skip-tasklist...
+Adding alias in WNCK::Window for set-sort-order...
+Adding alias in WNCK::Window for set-window-type...
+Adding alias in WNCK::Window for transient-is-most-recently-activated...
+Adding alias in WNCK::Window for get-class-instance-name...
+Adding alias in WNCK::Window for get-group-leader...
+Adding alias in WNCK::Window for group_leader...
+Adding alias in WNCK::Window for group-leader...
+Adding alias in WNCK::Window for get-icon-name...
+Adding alias in WNCK::Window for icon_name...
+Adding alias in WNCK::Window for icon-name...
+Adding alias in WNCK::Window for get-mini-icon...
+Adding alias in WNCK::Window for mini_icon...
+Adding alias in WNCK::Window for mini-icon...
+Adding alias in WNCK::Window for get-name...
+Adding alias in WNCK::Window for name...
+Adding alias in WNCK::Window for get-sort-order...
+Adding alias in WNCK::Window for sort_order...
+Adding alias in WNCK::Window for sort-order...
+Adding alias in WNCK::Window for is-below...
+Adding alias in WNCK::Window for is-maximized-vertically...
+Adding alias in WNCK::Window for is-most-recently-activated...
+Adding alias in WNCK::Window for is-shaded...
+Adding alias in WNCK::Window for keyboard-size...
+Adding alias in WNCK::Window for or-transient-needs-attention...
+Adding alias in WNCK::Window for unmake-above...
+Adding alias in WNCK::Window for unmake-below...
+Adding alias in WNCK::Window for unmaximize-horizontally...
+Adding alias in WNCK::Window for unmaximize-vertically...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WNCK::Workspace ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Workspace.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.083
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.032
+    Stage mast       :   0.055
+    Stage mbc        :   0.038
+Adding alias in WNCK::Workspace for WnckWorkspace...
+Stage parse      :   4.619
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WNCK::Workspace for name_changed...
+Adding alias in WNCK::Workspace for get-neighbor...
+Adding alias in WNCK::Workspace for neighbor...
+Adding alias in WNCK::Workspace for get-layout-column...
+Adding alias in WNCK::Workspace for layout_column...
+Adding alias in WNCK::Workspace for layout-column...
+Adding alias in WNCK::Workspace for get-layout-row...
+Adding alias in WNCK::Workspace for layout_row...
+Adding alias in WNCK::Workspace for layout-row...
+Adding alias in WNCK::Workspace for get-name...
+Adding alias in WNCK::Workspace for name...
+Adding alias in WNCK::Workspace for get-number...
+Adding alias in WNCK::Workspace for number...
+Adding alias in WNCK::Workspace for get-screen...
+Adding alias in WNCK::Workspace for screen...
+Adding alias in WNCK::Workspace for get-type...
+Adding alias in WNCK::Workspace for get-viewport-x...
+Adding alias in WNCK::Workspace for viewport_x...
+Adding alias in WNCK::Workspace for viewport-x...
+Adding alias in WNCK::Workspace for get-width...
+Adding alias in WNCK::Workspace for width...
+Adding alias in WNCK::Workspace for is-virtual...
+Adding alias in WNCK::Workspace for change-name...
+Adding alias in WNCK::Workspace for get-height...
+Adding alias in WNCK::Workspace for height...
+Adding alias in WNCK::Workspace for get-viewport-y...
+Adding alias in WNCK::Workspace for viewport_y...
+Adding alias in WNCK::Workspace for viewport-y...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WNCK::ActionMenu ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/ActionMenu.pm6
+    Stage start      :   0.000
+    Stage parse      :   5.684
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.237
+    Stage mbc        :   0.057
+Adding alias in WNCK::ActionMenu for get-type...
+Stage parse      :   8.321
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Roles: ()
+ === WNCK::Raw::Application ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Application.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.939
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.076
+    Stage mbc        :   0.054
+Stage parse      :   4.451
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::ClassGroup ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/ClassGroup.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.497
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.014
+    Stage mast       :   0.072
+    Stage mbc        :   0.035
+Stage parse      :   3.949
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::Pager ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Pager.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.546
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.016
+    Stage mast       :   0.073
+    Stage mbc        :   0.039
+Stage parse      :   4.025
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::Screen ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Screen.pm6
+    Stage start      :   0.000
+    Stage parse      :   4.882
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.029
+    Stage mast       :   0.136
+    Stage mbc        :   0.106
+Stage parse      :   6.529
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Raw::Tasklist ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Raw/Tasklist.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.116
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.081
+    Stage mbc        :   0.055
+Stage parse      :   4.644
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.012
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === WNCK::Screen ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Screen.pm6
+    Stage start      :   0.000
+    Stage parse      :   4.586
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.037
+    Stage mast       :   0.132
+    Stage mbc        :   0.054
+Adding alias in WNCK::Screen for get-default...
+Stage parse      :   6.608
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WNCK::Screen for default...
+Adding alias in WNCK::Screen for get-for-root...
+Adding alias in WNCK::Screen for new_for_root...
+Adding alias in WNCK::Screen for new-for-root...
+Adding alias in WNCK::Screen for active_window_changed...
+Adding alias in WNCK::Screen for active_workspace_changed...
+Adding alias in WNCK::Screen for application_closed...
+Adding alias in WNCK::Screen for application_opened...
+Adding alias in WNCK::Screen for background_changed...
+Adding alias in WNCK::Screen for class_group_closed...
+Adding alias in WNCK::Screen for class_group_opened...
+Adding alias in WNCK::Screen for showing_desktop_changed...
+Adding alias in WNCK::Screen for viewports_changed...
+Adding alias in WNCK::Screen for window_closed...
+Adding alias in WNCK::Screen for window_manager_changed...
+Adding alias in WNCK::Screen for window_opened...
+Adding alias in WNCK::Screen for window_stacking_changed...
+Adding alias in WNCK::Screen for workspace_created...
+Adding alias in WNCK::Screen for workspace_destroyed...
+Adding alias in WNCK::Screen for change-workspace-count...
+Adding alias in WNCK::Screen for force-update...
+Adding alias in WNCK::Screen for get-active-window...
+Adding alias in WNCK::Screen for active_window...
+Adding alias in WNCK::Screen for active-window...
+Adding alias in WNCK::Screen for get-active-workspace...
+Adding alias in WNCK::Screen for active_workspace...
+Adding alias in WNCK::Screen for active-workspace...
+Adding alias in WNCK::Screen for get-background-pixmap...
+Adding alias in WNCK::Screen for background_pixmap...
+Adding alias in WNCK::Screen for background-pixmap...
+Adding alias in WNCK::Screen for get-height...
+Adding alias in WNCK::Screen for height...
+Adding alias in WNCK::Screen for get-previously-active-window...
+Adding alias in WNCK::Screen for previously_active_window...
+Adding alias in WNCK::Screen for previously-active-window...
+Adding alias in WNCK::Screen for get-number...
+Adding alias in WNCK::Screen for number...
+Adding alias in WNCK::Screen for get-type...
+Adding alias in WNCK::Screen for get-showing-desktop...
+Adding alias in WNCK::Screen for showing_desktop...
+Adding alias in WNCK::Screen for showing-desktop...
+Adding alias in WNCK::Screen for get-window-manager-name...
+Adding alias in WNCK::Screen for window_manager_name...
+Adding alias in WNCK::Screen for window-manager-name...
+Adding alias in WNCK::Screen for net-wm-supports...
+Adding alias in WNCK::Screen for get-width...
+Adding alias in WNCK::Screen for width...
+Adding alias in WNCK::Screen for get-windows...
+Adding alias in WNCK::Screen for windows...
+Adding alias in WNCK::Screen for get-windows-stacked...
+Adding alias in WNCK::Screen for windows_stacked...
+Adding alias in WNCK::Screen for windows-stacked...
+Adding alias in WNCK::Screen for get-workspace...
+Adding alias in WNCK::Screen for get-workspaces...
+Adding alias in WNCK::Screen for workspaces...
+Adding alias in WNCK::Screen for get-workspace-count...
+Adding alias in WNCK::Screen for workspace_count...
+Adding alias in WNCK::Screen for workspace-count...
+Adding alias in WNCK::Screen for move-viewport...
+Adding alias in WNCK::Screen for release-workspace-layout...
+Adding alias in WNCK::Screen for toggle-showing-desktop...
+Adding alias in WNCK::Screen for try-set-workspace-layout...
+Roles: ((Object) (Screen))
+R: GLib::Roles::Object
+R: WNCK::Roles::Signals::Screen
+ === WNCK::Tasklist ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Tasklist.pm6
+    Stage start      :   0.000
+    Stage parse      :   4.867
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.188
+    Stage mbc        :   0.032
+Adding alias in WNCK::Tasklist for WnckTasklist...
+Stage parse      :   7.166
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WNCK::Tasklist for scroll-enabled...
+Adding alias in WNCK::Tasklist for fade_loop_time...
+Adding alias in WNCK::Tasklist for fade_max_loops...
+Adding alias in WNCK::Tasklist for fade_opacity...
+Adding alias in WNCK::Tasklist for fade_overlay_rect...
+Adding alias in WNCK::Tasklist for get-size-hint-list...
+Adding alias in WNCK::Tasklist for get-type...
+Adding alias in WNCK::Tasklist for set-button-relief...
+Adding alias in WNCK::Tasklist for set-grouping...
+Adding alias in WNCK::Tasklist for set-grouping-limit...
+Adding alias in WNCK::Tasklist for set-icon-loader...
+Adding alias in WNCK::Tasklist for set-include-all-workspaces...
+Adding alias in WNCK::Tasklist for set-middle-click-close...
+Adding alias in WNCK::Tasklist for set-orientation...
+Adding alias in WNCK::Tasklist for set-switch-workspace-on-unminimize...
+Roles: ()
+ === WNCK::Application ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Application.pm6
+    Stage start      :   0.000
+    Stage parse      :   4.069
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.112
+    Stage mbc        :   0.039
+Adding alias in WNCK::Application for WnckApplication...
+Stage parse      :   6.002
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Adding alias in WNCK::Application for icon_changed...
+Adding alias in WNCK::Application for name_changed...
+Adding alias in WNCK::Application for get-icon...
+Adding alias in WNCK::Application for icon...
+Adding alias in WNCK::Application for get-icon-is-fallback...
+Adding alias in WNCK::Application for icon_is_fallback...
+Adding alias in WNCK::Application for icon-is-fallback...
+Adding alias in WNCK::Application for get-icon-name...
+Adding alias in WNCK::Application for icon_name...
+Adding alias in WNCK::Application for icon-name...
+Adding alias in WNCK::Application for get-n-windows...
+Adding alias in WNCK::Application for n_windows...
+Adding alias in WNCK::Application for n-windows...
+Adding alias in WNCK::Application for elems...
+Adding alias in WNCK::Application for get-name...
+Adding alias in WNCK::Application for name...
+Adding alias in WNCK::Application for get-type...
+Adding alias in WNCK::Application for get-windows...
+Adding alias in WNCK::Application for windows...
+Adding alias in WNCK::Application for get-xid...
+Adding alias in WNCK::Application for xid...
+Adding alias in WNCK::Application for get-mini-icon...
+Adding alias in WNCK::Application for mini_icon...
+Adding alias in WNCK::Application for mini-icon...
+Adding alias in WNCK::Application for get-pid...
+Adding alias in WNCK::Application for pid...
+Adding alias in WNCK::Application for get-startup-id...
+Adding alias in WNCK::Application for startup_id...
+Adding alias in WNCK::Application for startup-id...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WNCK::ClassGroup ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/ClassGroup.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.987
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.017
+    Stage mast       :   0.103
+    Stage mbc        :   0.023
+Adding alias in WNCK::ClassGroup for get-icon...
+Stage parse      :   4.862
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WNCK::ClassGroup for icon...
+Adding alias in WNCK::ClassGroup for get-id...
+Adding alias in WNCK::ClassGroup for id...
+Adding alias in WNCK::ClassGroup for get-name...
+Adding alias in WNCK::ClassGroup for name...
+Adding alias in WNCK::ClassGroup for get-res-class...
+Adding alias in WNCK::ClassGroup for res_clas...
+Adding alias in WNCK::ClassGroup for res-class...
+Adding alias in WNCK::ClassGroup for get-type...
+Adding alias in WNCK::ClassGroup for get-windows...
+Adding alias in WNCK::ClassGroup for windows...
+Adding alias in WNCK::ClassGroup for get-mini-icon...
+Adding alias in WNCK::ClassGroup for mini_icon...
+Adding alias in WNCK::ClassGroup for mini-icon...
+Roles: ((Object) (Generic))
+R: GLib::Roles::Object
+R: GLib::Roles::Signals::Generic
+ === WNCK::Pager ===
+Stage start      :   0.000
+
+    precomp lib/WNCK/Pager.pm6
+    Stage start      :   0.000
+    Stage parse      :   4.617
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.012
+    Stage mast       :   0.162
+    Stage mbc        :   0.031
+Adding alias in WNCK::Pager for WnckPager...
+Stage parse      :   6.770
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.000
+Stage moar       :   0.000
+Adding alias in WNCK::Pager for wrap-on-scroll...
+Adding alias in WNCK::Pager for get-type...
+Adding alias in WNCK::Pager for set-display-mode...
+Adding alias in WNCK::Pager for set-n-rows...
+Adding alias in WNCK::Pager for set-orientation...
+Adding alias in WNCK::Pager for set-shadow-type...
+Adding alias in WNCK::Pager for set-show-all...
+Roles: ()
+
+real 210.88
+user 246.84
+sys 14.84

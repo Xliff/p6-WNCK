@@ -8,7 +8,7 @@ use WNCK::Raw::Pager;
 use GTK::Widget;
 
 our subset WnckPagerAncestry is export of Mu
-  where WnckPager | WidgetAncestry;
+  where WnckPager | GtkWidgetAncestry;
 
 class WNCK::Pager is GTK::Widget {
   has WnckPager $!wp;

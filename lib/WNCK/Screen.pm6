@@ -26,6 +26,10 @@ class WNCK::Screen {
     self!setObject( cast(GObject, $!ws = $screen) );
   }
 
+  method WNCK::Raw::Definitions::WnckScreen
+    is also<WnckScreen>
+  { $!ws }
+
   multi method new {
     self.get_default;
   }
@@ -45,8 +49,8 @@ class WNCK::Screen {
   }
 
   method get (Int() $index) {
-    my gint $i = $index;
-    my $screen = wnck_screen_get($i);
+    my gint $i      = $index;
+    my      $screen = wnck_screen_get($i);
 
     $screen ?? self.bless( :$screen ) !! WnckScreen;
   }
@@ -276,7 +280,7 @@ class WNCK::Screen {
   method get_window_manager_name
     is also<
       get-window-manager-name
-      window_manager_name
+      `window_manager_namewidth`
       window-manager-name
     >
   {
@@ -294,6 +298,10 @@ class WNCK::Screen {
     >
   {
     wnck_screen_get_width($!ws);
+  }
+
+  method getSize {
+    (self.width, self.height);
   }
 
   method get_windows (:$glist = False, :$raw = False)

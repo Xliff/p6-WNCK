@@ -455,10 +455,10 @@ class WNCK::Window {
     my gint  ($xx, $yy, $w, $h) = ($x, $y, $width, $height);
 
     my $mask = 0;
-    $mask +|= WNCK_WINDOW_CHANGE_X      if $xx > 0;
-    $mask +|= WNCK_WINDOW_CHANGE_Y      if $yy > 0;
-    $mask +|= WNCK_WINDOW_CHANGE_WIDTH  if  $w > 0;
-    $mask +|= WNCK_WINDOW_CHANGE_HEIGHT if  $h > 0;
+    $mask +|= WNCK_WINDOW_CHANGE_X      if $xx >= 0;
+    $mask +|= WNCK_WINDOW_CHANGE_Y      if $yy >= 0;
+    $mask +|= WNCK_WINDOW_CHANGE_WIDTH  if  $w >= 0;
+    $mask +|= WNCK_WINDOW_CHANGE_HEIGHT if  $h >= 0;
 
     say "Setting to ($xx, $yy, $w, $h)";
 

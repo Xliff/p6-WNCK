@@ -262,7 +262,12 @@ class WNCK::Window {
       screen
     >
   {
-    ::('WNCK::Screen').wnck_window_get_screen($!ww, :$raw);
+    returnObject(
+      wnck_window_get_screen($!ww),
+      $raw,
+      WnckScreen,
+      WNCK::Screen
+    );
   }
 
   method get_session_id
@@ -437,18 +442,38 @@ class WNCK::Window {
     wnck_window_set_fullscreen($!ww, $fs);
   }
 
-  method set_geometry (
+  proto method set_geometry (|)
+    is also<set-geometry>
+  { * }
+
+  multi method set_geometry (
+    Int() $x,
+    Int() $y,
+    Int() $width,
+    Int() $height
+  ) {
+    my gint  ($xx, $yy, $w, $h) = ($x, $y, $width, $height);
+
+    my $mask = 0;
+    $mask +|= WNCK_WINDOW_CHANGE_X      if $xx > 0;
+    $mask +|= WNCK_WINDOW_CHANGE_Y      if $yy > 0;
+    $mask +|= WNCK_WINDOW_CHANGE_WIDTH  if  $w > 0;
+    $mask +|= WNCK_WINDOW_CHANGE_HEIGHT if  $h > 0;
+
+    say "Setting to ($xx, $yy, $w, $h)";
+
+    samewith(WNCK_WINDOW_GRAVITY_CURRENT, $mask, $xx, $yy, $w, $h);
+  }
+  multi method set_geometry (
     Int() $gravity,
     Int() $geometry_mask,
     Int() $x,
     Int() $y,
     Int() $width,
     Int() $height
-  )
-    is also<set-geometry>
-  {
-    my guint ($g, $gm) = ($gravity, $geometry_mask);
-    my gint ($xx, $yy, $w, $h) = ($x, $y, $width, $height);
+  ) {
+    my guint ($g, $gm)          = ($gravity, $geometry_mask);
+    my gint  ($xx, $yy, $w, $h) = ($x, $y, $width, $height);
 
     wnck_window_set_geometry($!ww, $g, $gm, $xx, $yy, $w, $h);
   }

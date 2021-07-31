@@ -31,9 +31,10 @@ class WNCK::Window {
 
   method get (Int() $xid) {
     my gulong $x = $xid;
+
     my $window = wnck_window_get($x);
 
-    $window ?? self.bless(:$window) !! WnckWindow;
+    $window ?? self.bless( :$window ) !! WnckWindow;
   }
 
   method get_transient (WnckWindow() $w) is also<get-transient> {

@@ -1,24 +1,24 @@
 Dependency Generation
 =====================
-real 0.87
-user 1.36
-sys 0.04
+real 0.92
+user 1.39
+sys 0.05
  === Cairo === (1/72)
 Stage start      :   0.000
-Stage parse      :   1.509
+Stage parse      :   1.535
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.003
+Stage mast       :   0.010
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Pixbuf === (2/72)
 Stage start      :   0.000
-Stage parse      :   2.456
+Stage parse      :   2.471
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.003
 Stage moar       :   0.000
  === GDK::Raw::Definitions === (3/72)
@@ -27,12 +27,12 @@ Stage parse      :   1.589
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.009
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Enums === (4/72)
 Stage start      :   0.000
-Stage parse      :   1.574
+Stage parse      :   1.578
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.004
@@ -41,7 +41,7 @@ Stage mbc        :   0.002
 Stage moar       :   0.000
  === GDK::Raw::Exports === (5/72)
 Stage start      :   0.000
-Stage parse      :   1.344
+Stage parse      :   1.345
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -50,16 +50,16 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GDK::Raw::Structs === (6/72)
 Stage start      :   0.000
-Stage parse      :   1.620
+Stage parse      :   1.637
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GDK::Raw::Subs === (7/72)
 Stage start      :   0.000
-Stage parse      :   1.642
+Stage parse      :   1.651
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -68,16 +68,16 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::DBus::Raw::Types === (8/72)
 Stage start      :   0.000
-Stage parse      :   1.853
+Stage parse      :   1.929
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.003
+Stage mast       :   0.002
 Stage mbc        :   0.002
 Stage moar       :   0.000
  === GIO::Raw::Definitions === (9/72)
 Stage start      :   0.000
-Stage parse      :   1.564
+Stage parse      :   1.594
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.008
@@ -86,43 +86,43 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Enums === (10/72)
 Stage start      :   0.000
-Stage parse      :   1.583
+Stage parse      :   1.635
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.003
-Stage mast       :   0.003
+Stage mast       :   0.004
 Stage mbc        :   0.002
 Stage moar       :   0.000
  === GIO::Raw::Exports === (11/72)
 Stage start      :   0.000
-Stage parse      :   1.344
+Stage parse      :   1.390
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.009
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Quarks === (12/72)
 Stage start      :   0.000
-Stage parse      :   1.817
+Stage parse      :   1.875
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
-Stage mast       :   0.002
+Stage optimize   :   0.000
+Stage mast       :   0.001
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Structs === (13/72)
 Stage start      :   0.000
-Stage parse      :   1.773
+Stage parse      :   1.880
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.002
+Stage mast       :   0.001
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GIO::Raw::Subs === (14/72)
 Stage start      :   0.000
-Stage parse      :   1.834
+Stage parse      :   1.878
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -131,7 +131,7 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::GList === (15/72)
 Stage start      :   0.000
-Stage parse      :   1.779
+Stage parse      :   1.908
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -140,16 +140,16 @@ Stage mbc        :   0.002
 Stage moar       :   0.000
  === GLib::Raw::Definitions === (16/72)
 Stage start      :   0.000
-Stage parse      :   1.536
+Stage parse      :   1.591
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.008
+Stage optimize   :   0.001
 Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Enums === (17/72)
 Stage start      :   0.000
-Stage parse      :   1.650
+Stage parse      :   1.730
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.005
@@ -158,7 +158,7 @@ Stage mbc        :   0.003
 Stage moar       :   0.000
  === GLib::Raw::Exceptions === (18/72)
 Stage start      :   0.000
-Stage parse      :   1.341
+Stage parse      :   1.399
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -167,7 +167,7 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Exports === (19/72)
 Stage start      :   0.000
-Stage parse      :   1.398
+Stage parse      :   1.452
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -176,16 +176,16 @@ Stage mbc        :   0.000
 Stage moar       :   0.000
  === GLib::Raw::Object === (20/72)
 Stage start      :   0.000
-Stage parse      :   1.668
+Stage parse      :   1.735
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === GLib::Raw::Struct_Subs === (21/72)
 Stage start      :   0.000
-Stage parse      :   1.571
+Stage parse      :   1.578
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -194,7 +194,7 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Structs === (22/72)
 Stage start      :   0.000
-Stage parse      :   1.767
+Stage parse      :   1.806
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -203,7 +203,7 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Raw::Subs === (23/72)
 Stage start      :   0.000
-Stage parse      :   1.758
+Stage parse      :   1.763
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -212,7 +212,7 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Roles::ListData === (24/72)
 Stage start      :   0.000
-Stage parse      :   1.774
+Stage parse      :   1.769
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
@@ -221,7 +221,7 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Roles::Object === (25/72)
 Stage start      :   0.000
-Stage parse      :   2.052
+Stage parse      :   1.981
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -230,16 +230,16 @@ Stage mbc        :   0.002
 Stage moar       :   0.000
  === GLib::Roles::Pointers === (26/72)
 Stage start      :   0.000
-Stage parse      :   1.555
+Stage parse      :   1.537
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.001
+Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Roles::Signals::Generic === (27/72)
 Stage start      :   0.000
-Stage parse      :   1.811
+Stage parse      :   1.866
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
@@ -248,61 +248,61 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GLib::Roles::StaticClass === (28/72)
 Stage start      :   0.000
-Stage parse      :   1.801
-Stage syntaxcheck:   0.000
-Stage ast        :   0.000
-Stage optimize   :   0.000
-Stage mast       :   0.001
-Stage mbc        :   0.001
-Stage moar       :   0.000
- === GLib::Value === (29/72)
-Stage start      :   0.000
-Stage parse      :   1.825
+Stage parse      :   1.813
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.002
 Stage mbc        :   0.001
 Stage moar       :   0.000
- === GTK::Container === (30/72)
+ === GLib::Value === (29/72)
 Stage start      :   0.000
-Stage parse      :   3.750
+Stage parse      :   1.816
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.001
-Stage mbc        :   0.008
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GTK::Container === (30/72)
+Stage start      :   0.000
+Stage parse      :   4.081
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.009
 Stage moar       :   0.000
  === GTK::Get === (31/72)
 Stage start      :   0.000
-Stage parse      :   3.087
+Stage parse      :   3.434
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
 Stage mast       :   0.001
-Stage mbc        :   0.005
+Stage mbc        :   0.004
 Stage moar       :   0.000
  === GTK::Menu === (32/72)
 Stage start      :   0.000
-Stage parse      :   4.041
+Stage parse      :   4.378
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.001
+Stage optimize   :   0.000
 Stage mast       :   0.001
 Stage mbc        :   0.009
 Stage moar       :   0.000
  === GTK::MenuBar === (33/72)
 Stage start      :   0.000
-Stage parse      :   3.922
+Stage parse      :   4.278
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
 Stage mast       :   0.001
-Stage mbc        :   0.013
+Stage mbc        :   0.009
 Stage moar       :   0.000
  === GTK::Raw::Definitions === (34/72)
 Stage start      :   0.000
-Stage parse      :   1.564
+Stage parse      :   1.697
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -311,25 +311,25 @@ Stage mbc        :   0.002
 Stage moar       :   0.000
  === GTK::Raw::Enums === (35/72)
 Stage start      :   0.000
-Stage parse      :   1.593
+Stage parse      :   1.714
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.005
-Stage mast       :   0.006
+Stage mast       :   0.034
 Stage mbc        :   0.003
 Stage moar       :   0.000
  === GTK::Raw::Exports === (36/72)
 Stage start      :   0.000
-Stage parse      :   1.339
+Stage parse      :   1.440
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.009
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === GTK::Raw::Requisition === (37/72)
 Stage start      :   0.000
-Stage parse      :   1.994
+Stage parse      :   2.105
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -338,7 +338,7 @@ Stage mbc        :   0.002
 Stage moar       :   0.000
  === GTK::Raw::Structs === (38/72)
 Stage start      :   0.000
-Stage parse      :   1.908
+Stage parse      :   2.063
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -347,7 +347,7 @@ Stage mbc        :   0.002
 Stage moar       :   0.000
  === GTK::Raw::Subs === (39/72)
 Stage start      :   0.000
-Stage parse      :   1.573
+Stage parse      :   1.685
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -356,16 +356,16 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === GTK::Roles::Signals::Generic === (40/72)
 Stage start      :   0.000
-Stage parse      :   2.336
+Stage parse      :   2.450
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
-Stage mast       :   0.013
-Stage mbc        :   0.003
+Stage mast       :   0.002
+Stage mbc        :   0.013
 Stage moar       :   0.000
  === GTK::Widget === (41/72)
 Stage start      :   0.000
-Stage parse      :   3.515
+Stage parse      :   3.798
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.000
@@ -374,16 +374,16 @@ Stage mbc        :   0.005
 Stage moar       :   0.000
  === Method::Also === (42/72)
 Stage start      :   0.000
-Stage parse      :   1.334
+Stage parse      :   1.425
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.006
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === NativeCall === (43/72)
 Stage start      :   0.000
-Stage parse      :   1.494
+Stage parse      :   1.555
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -392,7 +392,7 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === Pango::Raw::Definitions === (44/72)
 Stage start      :   0.000
-Stage parse      :   1.612
+Stage parse      :   1.779
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -401,25 +401,25 @@ Stage mbc        :   0.001
 Stage moar       :   0.000
  === Pango::Raw::Enums === (45/72)
 Stage start      :   0.000
-Stage parse      :   1.598
+Stage parse      :   1.781
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
 Stage mast       :   0.003
-Stage mbc        :   0.001
+Stage mbc        :   0.002
 Stage moar       :   0.000
  === Pango::Raw::Exports === (46/72)
 Stage start      :   0.000
-Stage parse      :   1.345
+Stage parse      :   1.450
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.006
+Stage mast       :   0.011
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === Pango::Raw::Structs === (47/72)
 Stage start      :   0.000
-Stage parse      :   1.832
+Stage parse      :   1.972
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -428,7 +428,7 @@ Stage mbc        :   0.002
 Stage moar       :   0.000
  === Pango::Raw::Subs === (48/72)
 Stage start      :   0.000
-Stage parse      :   1.864
+Stage parse      :   1.942
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.001
@@ -440,17 +440,17 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Definitions.pm6
     Stage start      :   0.000
-    Stage parse      :   1.643
+    Stage parse      :   1.764
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.003
-    Stage mast       :   0.015
-    Stage mbc        :   0.001
-Stage parse      :   3.133
+    Stage mast       :   0.011
+    Stage mbc        :   0.002
+Stage parse      :   3.361
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.007
+Stage mast       :   0.014
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WNCK::Raw::Enums === (50/72)
@@ -458,17 +458,17 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Enums.pm6
     Stage start      :   0.000
-    Stage parse      :   1.893
+    Stage parse      :   2.052
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.012
-    Stage mast       :   0.018
-    Stage mbc        :   0.007
-Stage parse      :   3.389
+    Stage optimize   :   0.014
+    Stage mast       :   0.021
+    Stage mbc        :   0.006
+Stage parse      :   3.685
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.008
-Stage mast       :   0.007
+Stage optimize   :   0.003
+Stage mast       :   0.008
 Stage mbc        :   0.002
 Stage moar       :   0.000
  === WNCK::Raw::Structs === (51/72)
@@ -476,17 +476,17 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Structs.pm6
     Stage start      :   0.000
-    Stage parse      :   1.667
+    Stage parse      :   1.772
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.011
-    Stage mast       :   0.011
+    Stage optimize   :   0.004
+    Stage mast       :   0.013
     Stage mbc        :   0.002
-Stage parse      :   3.140
+Stage parse      :   3.356
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.012
+Stage mast       :   0.013
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WNCK::Raw::Exports === (52/72)
@@ -494,17 +494,17 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Exports.pm6
     Stage start      :   0.000
-    Stage parse      :   0.152
+    Stage parse      :   0.142
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.003
     Stage mast       :   0.005
     Stage mbc        :   0.001
-Stage parse      :   1.608
+Stage parse      :   1.671
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.006
+Stage mast       :   0.007
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WNCK::Raw::Types === (53/72)
@@ -512,49 +512,49 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Types.pm6
     Stage start      :   0.000
-    Stage parse      :   3.242
+    Stage parse      :   3.309
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.003
-    Stage mast       :   0.020
-    Stage mbc        :   0.004
-Stage parse      :   4.946
+    Stage mast       :   0.021
+    Stage mbc        :   0.005
+Stage parse      :   5.097
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.017
-Stage mast       :   0.037
-Stage mbc        :   0.017
+Stage mast       :   0.043
+Stage mbc        :   0.016
 Stage moar       :   0.000
  === WNCK::Raw::Utils === (54/72)
 Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Utils.pm6
     Stage start      :   0.000
-    Stage parse      :   2.130
+    Stage parse      :   2.227
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.020
-    Stage mast       :   0.026
-    Stage mbc        :   0.017
-Stage parse      :   3.863
+    Stage mast       :   0.021
+    Stage mbc        :   0.018
+Stage parse      :   3.996
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mbc        :   0.001
 Stage moar       :   0.000
  === WNCK::Raw::Window === (55/72)
 Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Window.pm6
     Stage start      :   0.000
-    Stage parse      :   5.144
+    Stage parse      :   5.196
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.053
-    Stage mast       :   0.094
-    Stage mbc        :   0.141
-Stage parse      :   7.155
+    Stage optimize   :   0.051
+    Stage mast       :   0.170
+    Stage mbc        :   0.151
+Stage parse      :   7.405
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.003
@@ -566,17 +566,17 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Workspace.pm6
     Stage start      :   0.000
-    Stage parse      :   2.434
+    Stage parse      :   2.533
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.021
-    Stage mast       :   0.028
-    Stage mbc        :   0.032
-Stage parse      :   4.178
+    Stage mast       :   0.045
+    Stage mbc        :   0.034
+Stage parse      :   4.362
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage optimize   :   0.005
+Stage mast       :   0.006
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WNCK::Roles::Signals::Screen === (57/72)
@@ -584,13 +584,13 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Roles/Signals/Screen.pm6
     Stage start      :   0.000
-    Stage parse      :   3.772
+    Stage parse      :   3.957
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.033
-    Stage mast       :   0.047
-    Stage mbc        :   0.033
-Stage parse      :   5.585
+    Stage optimize   :   0.025
+    Stage mast       :   0.055
+    Stage mbc        :   0.029
+Stage parse      :   5.821
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -602,13 +602,13 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Selector.pm6
     Stage start      :   0.000
-    Stage parse      :   5.918
+    Stage parse      :   5.995
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.128
-    Stage mbc        :   0.036
-Stage parse      :   8.609
+    Stage optimize   :   0.027
+    Stage mast       :   0.132
+    Stage mbc        :   0.038
+Stage parse      :   8.771
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -620,14 +620,14 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Utils.pm6
     Stage start      :   0.000
-    Stage parse      :   1.831
+    Stage parse      :   1.880
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.023
-    Stage mast       :   0.036
-    Stage mbc        :   0.015
+    Stage optimize   :   0.021
+    Stage mast       :   0.047
+    Stage mbc        :   0.016
 R: GLib::Roles::StaticClass
-Stage parse      :   3.534
+Stage parse      :   3.650
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -639,17 +639,17 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Window.pm6
     Stage start      :   0.000
-    Stage parse      :   5.896
+    Stage parse      :   6.064
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
     Stage optimize   :   0.073
-    Stage mast       :   0.113
-    Stage mbc        :   0.058
+    Stage mast       :   0.119
+    Stage mbc        :   0.060
 R: GLib::Roles::Object
-Stage parse      :   8.179
+Stage parse      :   8.434
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.007
+Stage optimize   :   0.002
 Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
@@ -659,14 +659,14 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Workspace.pm6
     Stage start      :   0.000
-    Stage parse      :   3.122
+    Stage parse      :   3.376
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.111
+    Stage optimize   :   0.029
     Stage mast       :   0.031
-    Stage mbc        :   0.032
+    Stage mbc        :   0.040
 R: GLib::Roles::Object
-Stage parse      :   5.037
+Stage parse      :   5.260
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -679,13 +679,13 @@ Stage start      :   0.000
 
     precomp lib/WNCK/ActionMenu.pm6
     Stage start      :   0.000
-    Stage parse      :   6.184
+    Stage parse      :   6.367
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.029
-    Stage mast       :   0.143
-    Stage mbc        :   0.031
-Stage parse      :   9.038
+    Stage optimize   :   0.032
+    Stage mast       :   0.156
+    Stage mbc        :   0.033
+Stage parse      :   9.329
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -697,13 +697,13 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Application.pm6
     Stage start      :   0.000
-    Stage parse      :   2.350
+    Stage parse      :   2.415
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.027
-    Stage mbc        :   0.028
-Stage parse      :   4.081
+    Stage optimize   :   0.028
+    Stage mast       :   0.025
+    Stage mbc        :   0.031
+Stage parse      :   4.195
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -715,31 +715,31 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/ClassGroup.pm6
     Stage start      :   0.000
-    Stage parse      :   2.223
+    Stage parse      :   2.368
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.021
-    Stage mast       :   0.024
-    Stage mbc        :   0.021
-Stage parse      :   3.934
+    Stage optimize   :   0.020
+    Stage mast       :   0.038
+    Stage mbc        :   0.022
+Stage parse      :   4.167
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
 Stage mast       :   0.004
-Stage mbc        :   0.001
+Stage mbc        :   0.000
 Stage moar       :   0.000
  === WNCK::Raw::Pager === (65/72)
 Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Pager.pm6
     Stage start      :   0.000
-    Stage parse      :   2.254
+    Stage parse      :   2.346
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.022
-    Stage mast       :   0.023
-    Stage mbc        :   0.023
-Stage parse      :   3.943
+    Stage optimize   :   0.026
+    Stage mast       :   0.022
+    Stage mbc        :   0.024
+Stage parse      :   4.153
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -751,13 +751,13 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Screen.pm6
     Stage start      :   0.000
-    Stage parse      :   3.102
+    Stage parse      :   3.150
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.029
-    Stage mast       :   0.038
-    Stage mbc        :   0.055
-Stage parse      :   4.886
+    Stage optimize   :   0.031
+    Stage mast       :   0.039
+    Stage mbc        :   0.057
+Stage parse      :   4.954
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -769,17 +769,17 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Raw/Tasklist.pm6
     Stage start      :   0.000
-    Stage parse      :   2.427
+    Stage parse      :   2.674
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.029
-    Stage mast       :   0.027
-    Stage mbc        :   0.028
-Stage parse      :   4.140
+    Stage optimize   :   0.024
+    Stage mast       :   0.030
+    Stage mbc        :   0.035
+Stage parse      :   4.611
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
+Stage mast       :   0.005
 Stage mbc        :   0.001
 Stage moar       :   0.000
  === WNCK::Screen === (68/72)
@@ -787,19 +787,19 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Screen.pm6
     Stage start      :   0.000
-    Stage parse      :   4.873
+    Stage parse      :   5.358
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.050
-    Stage mast       :   0.080
-    Stage mbc        :   0.040
+    Stage optimize   :   0.069
+    Stage mast       :   0.133
+    Stage mbc        :   0.043
 R: GLib::Roles::Object
-Stage parse      :   7.156
+Stage parse      :   8.149
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
-Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage optimize   :   0.003
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: WNCK::Roles::Signals::Screen
  === WNCK::Tasklist === (69/72)
@@ -807,13 +807,13 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Tasklist.pm6
     Stage start      :   0.000
-    Stage parse      :   5.523
+    Stage parse      :   6.190
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.034
-    Stage mast       :   0.119
-    Stage mbc        :   0.026
-Stage parse      :   8.005
+    Stage optimize   :   0.039
+    Stage mast       :   0.136
+    Stage mbc        :   0.034
+Stage parse      :   8.982
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -825,14 +825,14 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Application.pm6
     Stage start      :   0.000
-    Stage parse      :   4.369
+    Stage parse      :   4.854
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.042
-    Stage mast       :   0.062
-    Stage mbc        :   0.030
+    Stage optimize   :   0.031
+    Stage mast       :   0.067
+    Stage mbc        :   0.033
 R: GLib::Roles::Object
-Stage parse      :   6.583
+Stage parse      :   7.214
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -845,19 +845,19 @@ Stage start      :   0.000
 
     precomp lib/WNCK/ClassGroup.pm6
     Stage start      :   0.000
-    Stage parse      :   3.329
+    Stage parse      :   3.875
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.026
-    Stage mast       :   0.055
-    Stage mbc        :   0.022
+    Stage optimize   :   0.029
+    Stage mast       :   0.065
+    Stage mbc        :   0.047
 R: GLib::Roles::Object
-Stage parse      :   5.462
+Stage parse      :   6.369
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
-Stage mast       :   0.004
-Stage mbc        :   0.000
+Stage mast       :   0.005
+Stage mbc        :   0.001
 Stage moar       :   0.000
 R: GLib::Roles::Signals::Generic
  === WNCK::Pager === (72/72)
@@ -865,13 +865,13 @@ Stage start      :   0.000
 
     precomp lib/WNCK/Pager.pm6
     Stage start      :   0.000
-    Stage parse      :   5.449
+    Stage parse      :   5.988
     Stage syntaxcheck:   0.000
     Stage ast        :   0.000
-    Stage optimize   :   0.030
-    Stage mast       :   0.101
-    Stage mbc        :   0.025
-Stage parse      :   7.865
+    Stage optimize   :   0.033
+    Stage mast       :   0.116
+    Stage mbc        :   0.026
+Stage parse      :   8.695
 Stage syntaxcheck:   0.000
 Stage ast        :   0.000
 Stage optimize   :   0.002
@@ -879,6 +879,6 @@ Stage mast       :   0.004
 Stage mbc        :   0.000
 Stage moar       :   0.000
 
-real 236.78
-user 279.21
-sys 19.60
+real 250.09
+user 295.40
+sys 19.19

@@ -26,7 +26,7 @@ sub MAIN (
 ) {
   my $app = GTK::Application.new( title => 'org.genex.wnck' );
 
-  $app.activate.tap({
+  $app.activate.tap(-> *@a {
     CATCH { default { .message.say } }
     $app.wait-for-init;
 
